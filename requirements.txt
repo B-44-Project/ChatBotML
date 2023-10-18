@@ -1,0 +1,9 @@
+flask
+flask-cors
+#flask-socketio
+gevent
+#psycopg2-binary
+socketio
+nltk
+spacy
+transformers
