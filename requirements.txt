@@ -1,9 +1,11 @@
 flask
 flask-cors
+flask-session
 #flask-socketio
 gevent
 #psycopg2-binary
 socketio
 nltk
-spacy
-transformers
+$spacy
+#transformers
+pymongo
