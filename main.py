@@ -19,6 +19,7 @@ app = Flask(
     )
 app.secret_key = 'mrvishal2k2'
 app.config['SESSION_TYPE'] = 'filesystem'
+
 Session(app)
 
 @app.route('/')
