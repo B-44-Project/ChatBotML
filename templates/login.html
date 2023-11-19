@@ -17,20 +17,18 @@
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
-  <form action="/dashboard.html">
+  <form method="post">
     <h3>Login Here</h3>
 
-    <label for="username">Username</label>
-    <input type="text" placeholder="Email or Phone" id="username">
+    <label for="email">Email</label>
+    <input type="email" placeholder="elon@musk.com" id="email" name="email">
 
     <label for="password">Password</label>
-    <input type="password" placeholder="Password" id="password">
+    <input type="password" placeholder="Password" id="password" name="pass">
 
-    <button>Log In</button>
-    <p>Don't have account?&nbsp;&nbsp;<span><a href="register.html">REGISTER NOW</a></span></p>
-    {% comment %} <div class="social">
-      <div class="go"><i class="fab fa-google"></i> Google</div>
-      <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-    </div> {% endcomment %}
+    <button type="submit">Log In</button>
+    <p>Don't have account?&nbsp;&nbsp;<span><a href="/register">REGISTER NOW</a></span></p>
+
   </form>
-  </div>
+  </div> 
+</html>

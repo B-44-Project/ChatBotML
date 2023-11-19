@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 .vscode
 templates/index2.html
+flask_session

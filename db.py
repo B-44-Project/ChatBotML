@@ -1,8 +1,8 @@
 import pymongo
 
 # Replace with your MongoDB connection string
-connection_string = "mongodb+srv://admin:admin123@cluster0.147cmvg.mongodb.net/?retryWrites=true&w=majority"
-
+#connection_string = "mongodb+srv://admin:admin123@cluster0.147cmvg.mongodb.net/?retryWrites=true&w=majority"
+connection_string = "mongodb://localhost:27017"
 
 class Db:
     def __init__(self, connection_string):
@@ -59,5 +59,5 @@ print(x.cat)
 """ 
 
 db = Db(connection_string)
-db.users.insert_one({"fname":"abcd", "email":"a@b.co".lower(),"pnum":1234567890, "pass":"a"})
-db.list_all_entries()
+#db.users.insert_one({"fname":"abcd", "email":"a@b.co".lower(),"pnum":1234567890, "pass":"a"})
+#db.list_all_entries()
