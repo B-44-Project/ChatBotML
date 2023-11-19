@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChatBot</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/Logo.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
+</head>
+
+<body>
+  <section class="side-bar">
+    <button>New Chat</button>
+    <div class="history"></div>
+    <div class="nav">
+      <p>Made by ChatPLUS</p>
+    </div>
+  </section>
+
+  <div class="chat-container">
+
+    <div class="typing-container">
+      <div class="typing-content">
+        <div class="typing-textarea">
+          <textarea id="chat-input" placeholder="Enter a prompt here" required></textarea>
+          <span id="send-btn" class="material-symbols-outlined">send</span>
+        </div>
+        <div class="typing-control">
+          <span id="theme-btn" class="material-symbols-outlined">light_mode</span>
+          <span id="delete-btn" class="material-symbols-outlined">delete</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</body>
+</html>
