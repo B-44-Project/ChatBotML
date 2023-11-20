@@ -8,6 +8,7 @@ from flask import (
     flash, 
     request
 )
+
 from flask_session import Session
 import os
 from db import db
