@@ -12,24 +12,31 @@
 </head>
 
 <body>
+
+  <!--Side Menu-->
   <section class="side-bar">
     <button>New Chat</button>
     <div class="history"></div>
     <div class="nav">
       <p>Made by ChatPLUS</p>
+      <span id="theme-btn" class="material-symbols-outlined">light_mode</span>
+      <span id="logout-btn" class="material-symbols-outlined">logout</span>
     </div>
   </section>
 
+  <!--Main container-->
   <div class="chat-container">
 
     <div class="typing-container">
+      <!--Input field-->
       <div class="typing-content">
         <div class="typing-textarea">
           <textarea id="chat-input" placeholder="Enter a prompt here" required></textarea>
           <span id="send-btn" class="material-symbols-outlined">send</span>
         </div>
         <div class="typing-control">
-          <span id="theme-btn" class="material-symbols-outlined">light_mode</span>
+          <span id="mic-btn" class="material-symbols-outlined">speech_to_text</span>
+          <span id="scan-btn" class="material-symbols-outlined">scan</span>
           <span id="delete-btn" class="material-symbols-outlined">delete</span>
         </div>
       </div>
