@@ -94,6 +94,39 @@ const copyResponse = (copyBtn) => {
   setTimeout(() => copyBtn.textContent = "content_copy", 1000);
 }
 
+const speakResponse = (speakBtn) => {
+    const responseTextElement = speakBtn.parentElement.querySelector("p");
+    const text = responseTextElement.textContent;
+    // Function to calculate the chunk size based on the text length
+    const calculateChunkSize = (textLength) => {
+        // Adjust this factor as needed
+        const chunkFactor = 0.05; // 10% of text length
+        return Math.max(1, Math.round(textLength * chunkFactor));
+    };
+    // Clear the synthesis queue
+    speechSynthesis.cancel();
+    // Calculate the chunk size dynamically based on text length
+    const chunkSize = calculateChunkSize(text.length);
+    // Chunk and speak the text
+    for (let i = 0; i < text.length; i += chunkSize) {
+        const chunk = text.substring(i, i + chunkSize);
+        const utterance = new SpeechSynthesisUtterance(chunk);
+        // Error handling, rate, pitch, and onend events remain unchanged
+        utterance.onerror = (event) => {
+            console.error('Speech synthesis error:', event.error);
+        };
+        // Adjust rate and pitch as needed
+        utterance.rate = 1.0; // Adjust the rate as needed (default is 1.0)
+        utterance.pitch = 0.8; // Adjust the pitch as needed (default is 1.0)
+        // Listen to the onend event to chain synthesis
+        utterance.onend = () => {
+            // Continue with the next chunk or utterance if needed
+        };
+        // Initiate speech synthesis for each chunk
+        speechSynthesis.speak(utterance);
+    }
+};
+
 const showTypingAnimation = () => {
   const html = `<div class="chat-content">
       <div class="chat-details">
@@ -105,6 +138,7 @@ const showTypingAnimation = () => {
           </div>
       </div>
       <span onclick="copyResponse(this)" class="material-symbols-outlined">content_copy</span>
+      <span onclick="speakResponse(this)" class="material-symbols-outlined">select_to_speak</span>
   </div>`;
   const incomingChatDiv = createElement(html, "incoming");
   chatContainer.appendChild(incomingChatDiv);
