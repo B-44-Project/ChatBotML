@@ -100,7 +100,7 @@ const speakResponse = (speakBtn) => {
     // Function to calculate the chunk size based on the text length
     const calculateChunkSize = (textLength) => {
         // Adjust this factor as needed
-        const chunkFactor = 0.05; // 10% of text length
+        const chunkFactor = 0.5; // 10% of text length
         return Math.max(1, Math.round(textLength * chunkFactor));
     };
     // Clear the synthesis queue
