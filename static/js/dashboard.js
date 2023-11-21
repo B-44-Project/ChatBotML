@@ -4,6 +4,8 @@ const chatContainer = document.querySelector(".chat-container");
 const API_KEY = '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';
 const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
+const micBtn = document.querySelector("#mic-btn");
+const logoutButton = document.querySelector("#logout-btn");
 
 let userText = null;
 let initialHeight;
@@ -165,7 +167,44 @@ const handleOutgoingChat = () => {
     chatContainer.appendChild(outgoingChatDiv);
     chatContainer.scrollTo(0, chatContainer.scrollHeight);
     setTimeout(showTypingAnimation, 500);
-  }
+}
+
+micBtn.addEventListener('click', function () {
+    var speech = true;
+    window.SpeechRecognition = window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+
+    if (speech == true) {
+        recognition.start();
+
+        recognition.onresult = function (event) {
+            const transcript = Array.from(event.results)
+                .map(result => result[0].transcript)
+                .join('');
+
+            chatInput.value = transcript;
+        };
+
+        recognition.onend = function () {
+            handleOutgoingChat();
+        };
+
+        recognition.onerror = function (event) {
+            console.error('Speech recognition error:', event.error);
+        };
+    }
+});
+
+logoutButton.addEventListener("click", () => {
+    if (confirm("Are you sure you want to logout?")) {
+        localStorage.removeItem("userToken");
+        window.location.href = "/";
+    }
+});
+
+
+
 
   /*
 themeButton.addEventListener("click", () => {
@@ -184,7 +223,6 @@ deleteButton.addEventListener("click", (event) => {
       }
     }
   });
-  
 
 chatInput.addEventListener("input", () => {
     chatInput.style.height = `${initialHeight}px`;

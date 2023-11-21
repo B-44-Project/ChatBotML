@@ -68,3 +68,14 @@ function animate() {
 
 drawVisor();
 animate();
+
+const loginButton = document.querySelector("#login-btn");
+const homeButton = document.querySelector("#home-btn");
+
+loginButton.addEventListener("click", () => {
+      window.location.href = "/";
+});
+
+homeButtonButton.addEventListener("click", () => {
+      window.location.href = "/";
+});

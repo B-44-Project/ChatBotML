@@ -99,7 +99,6 @@ h1{
     display: flex;
     justify-content: center;
     color: var(--text-color);
-    cursor: pointer;
 }
 
 .chat-container .chat.outgoing{
@@ -124,6 +123,7 @@ h1{
     font-size: 1.3rem;
     color: var(--icon-color);
     visibility: hidden;
+    cursor: pointer;
 }
 
 .chat:hover .chat-content:not(:has(.typing-animation, .error)) span{
