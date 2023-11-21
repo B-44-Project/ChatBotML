@@ -5,7 +5,6 @@ const API_KEY = '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';
 const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
 const micBtn = document.querySelector("#mic-btn");
-const logoutButton = document.querySelector("#logout-btn");
 
 let userText = null;
 let initialHeight;
@@ -196,14 +195,35 @@ micBtn.addEventListener('click', function () {
     }
 });
 
-logoutButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to logout?")) {
+document.addEventListener("DOMContentLoaded", function () {
+    const logoutButton = document.getElementById("logout-btn");
+    const pop = document.getElementById("pop");
+    const confirmLogoutButton = document.getElementById("confirmLogout");
+    const cancelLogoutButton = document.getElementById("cancelLogout");
+
+    logoutButton.addEventListener("click", () => {
+        // Show the popup when the logout button is clicked
+        pop.classList.add("visible");
+    });
+
+    confirmLogoutButton.addEventListener("click", () => {
+        // If Yes is clicked, perform logout actions
         localStorage.removeItem("userToken");
         window.location.href = "/";
-    }
+    });
+
+    cancelLogoutButton.addEventListener("click", () => {
+        // If No is clicked, hide the popup
+        pop.classList.remove("visible");
+    });
+
+    // Close the popup if the user clicks outside the modal
+    window.addEventListener("click", (event) => {
+        if (event.target === pop) {
+            pop.classList.remove("visible");
+        }
+    });
 });
-
-
 
 
   /*
