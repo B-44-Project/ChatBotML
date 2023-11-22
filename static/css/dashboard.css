@@ -318,7 +318,7 @@ button{
 /*Popup design*/
 .popup{
     width: 400px;
-    background: var(--text-color);
+    background: var(--placeholder-color);
     border-radius: 6px;
     position: absolute;
     top: 50%;

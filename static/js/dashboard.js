@@ -1,3 +1,4 @@
+//Declaring variables
 const chatInput = document.querySelector("#chat-input");
 const sendButton = document.querySelector("#send-btn");
 const chatContainer = document.querySelector(".chat-container");
@@ -12,12 +13,14 @@ let initialHeight;
 function initializeApp() {
     initialHeight = chatInput.scrollHeight;
 
+    //Theme-btn function
     themeButton.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
         localStorage.setItem("theme-color", themeButton.innerText);
         themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
     });
 
+    //Delete-btn function
     deleteButton.addEventListener("click", (event) => {
         if (event.target === deleteButton) {
             if (confirm("Are you sure want to delete all the chats?")) {
@@ -28,11 +31,13 @@ function initializeApp() {
         }
     });
 
+    //Input field
     chatInput.addEventListener("input", () => {
         chatInput.style.height = `${initialHeight}px`;
         chatInput.style.height = `${chatInput.scrollHeight}px`;
     });
 
+    //Enter & shift + enter input field functions
     chatInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
             e.preventDefault();
@@ -40,6 +45,7 @@ function initializeApp() {
         }
     });
 
+    //send-btn function
     sendButton.addEventListener("click", handleOutgoingChat);
 }
 
@@ -94,6 +100,7 @@ const copyResponse = (copyBtn) => {
   setTimeout(() => copyBtn.textContent = "content_copy", 1000);
 }
 
+//Speaker-btn function
 const speakResponse = (speakBtn) => {
     const responseTextElement = speakBtn.parentElement.querySelector("p");
     const text = responseTextElement.textContent;
@@ -127,6 +134,7 @@ const speakResponse = (speakBtn) => {
     }
 };
 
+//Before getting response and displaying
 const showTypingAnimation = () => {
   const html = `<div class="chat-content">
       <div class="chat-details">
@@ -167,6 +175,7 @@ const handleOutgoingChat = () => {
     setTimeout(showTypingAnimation, 500);
 }
 
+//Mic-btn to convert the voice to text and provide same to the input field
 micBtn.addEventListener('click', function () {
     var speech = true;
     window.SpeechRecognition = window.webkitSpeechRecognition;
@@ -194,6 +203,7 @@ micBtn.addEventListener('click', function () {
     }
 });
 
+//Customized pop window function
 document.addEventListener("DOMContentLoaded", function () {
     const logoutButton = document.getElementById("logout-btn");
     const pop = document.getElementById("pop");
