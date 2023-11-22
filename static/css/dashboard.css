@@ -315,6 +315,7 @@ button{
     cursor: pointer;
 }
 
+/*Popup design*/
 .popup{
     width: 400px;
     background: var(--text-color);
@@ -361,4 +362,5 @@ button{
     transform: translate(-50%, -50%) scale(1);
     transition: visibility 0s linear 0s, transform 0.2s ease-out;
 }
+
 

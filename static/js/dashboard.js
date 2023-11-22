@@ -12,7 +12,6 @@ let initialHeight;
 function initializeApp() {
     initialHeight = chatInput.scrollHeight;
 
-    // Attach event listeners after elements are initialized
     themeButton.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
         localStorage.setItem("theme-color", themeButton.innerText);
@@ -202,22 +201,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const cancelLogoutButton = document.getElementById("cancelLogout");
 
     logoutButton.addEventListener("click", () => {
-        // Show the popup when the logout button is clicked
         pop.classList.add("visible");
     });
 
     confirmLogoutButton.addEventListener("click", () => {
-        // If Yes is clicked, perform logout actions
         localStorage.removeItem("userToken");
         window.location.href = "/";
     });
 
     cancelLogoutButton.addEventListener("click", () => {
-        // If No is clicked, hide the popup
         pop.classList.remove("visible");
     });
 
-    // Close the popup if the user clicks outside the modal
     window.addEventListener("click", (event) => {
         if (event.target === pop) {
             pop.classList.remove("visible");
