@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OTP verification</title>
-    <link rel="icon" href="{{ url_for('static', filename='images/Logo.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/otp.css') }}">
+    <link href="otp.css" rel="stylesheet">
+    <title>OTP Verification</title>
 </head>
 <body>
     <div class="container">
-        <h2>Verify your account</h2>
-        <p>we emailed you the six digit code to personal@gmail.com <br/> Enter the code below to confirm your email address.</p>
-        
+        <h2>Verify your Account</h2>
+        <p>
+            We emailed you the six digit code to personal@gmail.com <br>
+            Enter the code below to confirm your email address.
+        </p>
+
+        <div class="code-container">
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input type="number" class="code" placeholder="0" min="0" max="9" required>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-primary">verify</button>
+        </div>
+
+        <small>
+            If you disn't receive a code !! <strong>RESEND</strong>
+        </small>
     </div>
+
+<script src="otp.js"></script>
 </body>
 </html>
