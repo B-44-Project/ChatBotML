@@ -12,6 +12,7 @@ from flask import (
 from flask_session import Session
 import os, random, time
 from db import db
+from utils import sendmail
 
 otpstore = {}
 
@@ -69,6 +70,8 @@ def login():
         #flash("Wrong credentials!", "danger")
         return redirect(url_for('login'))
 
+
+
 @app.route("/reset", methods=["GET", "POST"])
 def reset():
     if request.method == 'GET':
@@ -76,7 +79,8 @@ def reset():
     else:
         data = request.form.to_dict()
         otp = "".join([random.choice("0123456789") for _ in range(6)]) 
-        print(otp)
+        print(otp) 
+        sendmail(data["email"],otp)
         otpstore[data["email"]] = {"otp":str(otp), "time": time.time(), "isDone": False} 
         session["otp_page"] =True
         
