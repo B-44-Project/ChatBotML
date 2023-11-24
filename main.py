@@ -62,7 +62,6 @@ def login():
         return render_template("login.html")
     else:
         data = request.form.to_dict() 
-        #print(data)
         x = db.users.find_one({"email":data.get('email')})
         if x and check_password_hash(x.get('pass'), data.get('pass')):
             session['email'] = data.get('email')
@@ -75,34 +74,31 @@ def reset():
     if request.method == 'GET':
         return render_template("reset.html")
     else:
-        data = request.form.to_dict()  
-        print(data)
+        data = request.form.to_dict()
         otp = "".join([random.choice("0123456789") for _ in range(6)]) 
         print(otp)
         otpstore[data["email"]] = {"otp":str(otp), "time": time.time(), "isDone": False} 
         session["otp_page"] =True
         
-        return redirect(url_for("otp", email=data["email"]))
+        return redirect(url_for("verify", email=data["email"]))
         
         
 
-@app.route("/otp", methods=["GET","POST"])
-def otp():
+@app.route("/verify", methods=["GET","POST"])
+def verify():
     if request.method == 'GET':
         if not session.get("otp_page") or not session:
             return redirect(url_for("reset"))  
         else:
             return render_template("otp.html", email=request.args.get("email"))
     else:
-        codes = ""
-        for code in request.form.getlist("code"):
-            codes+=code
+        codes = ''.join(request.form.getlist("code"))
+
         email = request.form['email'] 
         
         if email in otpstore:
             daata = otpstore[email] 
-            current= time.time()
-            if int(current)-int(daata["time"]) <= 600: # 10 mins timeout
+            if int(time.time())-int(daata["time"]) <= 600: # 10 mins timeout
                 if codes==daata["otp"]: # correct otp
                     print("passed")
                     otpstore[email]["isDone"] = True
@@ -111,7 +107,6 @@ def otp():
                     return "Wrong otp"
             else:
                 return "Timeout, Try sending otp again later"
-                
         else:
             return redirect(url_for("reset"))
 
@@ -131,11 +126,20 @@ def setpassword():
                 return "Incomplete, u not verified otp"
     else: 
         data = request.form.to_dict() 
-        print(data)
-        return str(data)
-    """
-    return render_template("setpassword.html")
-    """
+        #print(data)
+        # str(data) 
+        email = data["email"]
+        hashed_password = generate_password_hash(data["pass1"], method='pbkdf2:sha256')
+
+        result = db.users.update_one(
+        {"email": email.lower()},
+        {"$set": {"pass": hashed_password}}
+        ) 
+        if result.matched_count == 1:
+            return f"Password updated successfully for user with email: {email}"
+        else:
+            return f"No user found with email: {email}"
+        
         
     
            
