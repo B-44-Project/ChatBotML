@@ -364,3 +364,56 @@ button{
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive styles */
+
+@media only screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+
+    body {
+        flex-direction: column;
+    }
+
+    .side-bar {
+        width: 100%;
+        height: auto;
+        border: none;
+        display:none;
+    }
+
+    .chat-container {
+        padding-bottom: 80px; /* Adjust as needed */
+    }
+
+    .history {
+        height: auto;
+    }
+    .typing-container{
+        width:100%;
+    }
+    /* Add more responsive styles as needed */
+}
+
+@media only screen and (max-width: 480px) {
+    /* Additional adjustments for even smaller screens */
+
+    .popup {
+        width: 90%;
+    }
+
+    /* Add more responsive styles as needed */
+}
