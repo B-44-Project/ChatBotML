@@ -10,8 +10,10 @@ from flask import (
 )
 
 from flask_session import Session
-import os, random
+import os, random, time
 from db import db
+
+otpstore = {}
 
 app = Flask(
     __name__,
@@ -51,7 +53,6 @@ def chat():
     
 @app.route("/logout")
 def logout():
-    
     session["email"] = None 
     return render_template(url_for("index"))
 
@@ -78,17 +79,65 @@ def reset():
         print(data)
         otp = "".join([random.choice("0123456789") for _ in range(6)]) 
         print(otp)
-        email = data["email"]
-        session[f"{email}"] = otp
+        otpstore[data["email"]] = {"otp":str(otp), "time": time.time(), "isDone": False} 
+        session["otp_page"] =True
         
-        print(session)
+        return redirect(url_for("otp", email=data["email"]))
         
         
 
-@app.route("/otp", methods=["GET", "POST"])
+@app.route("/otp", methods=["GET","POST"])
 def otp():
     if request.method == 'GET':
-        return render_template("otp.html")
+        if not session.get("otp_page") or not session:
+            return redirect(url_for("reset"))  
+        else:
+            return render_template("otp.html", email=request.args.get("email"))
+    else:
+        codes = ""
+        for code in request.form.getlist("code"):
+            codes+=code
+        email = request.form['email'] 
+        
+        if email in otpstore:
+            daata = otpstore[email] 
+            current= time.time()
+            if int(current)-int(daata["time"]) <= 600: # 10 mins timeout
+                if codes==daata["otp"]: # correct otp
+                    print("passed")
+                    otpstore[email]["isDone"] = True
+                    return redirect(url_for("setpassword", email=email))
+                else:
+                    return "Wrong otp"
+            else:
+                return "Timeout, Try sending otp again later"
+                
+        else:
+            return redirect(url_for("reset"))
+
+@app.route("/setpassword", methods=["GET", "POST"])     
+def setpassword():
+    print(otpstore)
+    if request.method == 'GET':
+        if not session.get("otp_page") or not session:
+            return redirect(url_for("reset"))  
+        else:
+            email = request.args.get("email", None)
+            if email is None:
+                return redirect(url_for("reset"))
+            if otpstore[email]["isDone"]:
+                return render_template("setpassword.html", email=request.args.get("email"))
+            else:
+                return "Incomplete, u not verified otp"
+    else: 
+        data = request.form.to_dict() 
+        print(data)
+        return str(data)
+    """
+    return render_template("setpassword.html")
+    """
+        
+    
            
 @app.route("/register", methods=["GET","POST"])
 def register():
