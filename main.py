@@ -64,6 +64,19 @@ def login():
         #flash("Wrong credentials!", "danger")
         return redirect(url_for('login'))
 
+@app.route("/reset", methods=["GET", "POST"])
+def reset():
+    if request.method == 'GET':
+        return render_template("reset.html")
+    else:
+        pass
+        
+        
+@app.route("/otp", methods=["GET", "POST"])
+def otp():
+    if request.method == 'GET':
+        return render_template("otp.html")
+           
 @app.route("/register", methods=["GET","POST"])
 def register():
     if request.method == "GET":

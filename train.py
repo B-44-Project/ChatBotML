@@ -2,6 +2,7 @@
 # incomplete version
 # train_chatbot.py
 
+# https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset/viewer/default/train?p=268&row=26805
 import nltk
 from nltk.stem import WordNetLemmatizer
 import numpy as np
