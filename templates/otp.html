@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="otp.css" rel="stylesheet">
     <title>OTP Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/otp.css') }}">
+    <script src="{{ url_for('static', filename='js/otp.js') }}" defer></script>
 </head>
 <body>
     <div class="container">
@@ -32,6 +33,5 @@
         </small>
     </div>
 
-<script src="otp.js"></script>
 </body>
 </html>
