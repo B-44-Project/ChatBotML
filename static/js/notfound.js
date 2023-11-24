@@ -73,9 +73,9 @@ const loginButton = document.querySelector("#login-btn");
 const homeButton = document.querySelector("#home-btn");
 
 loginButton.addEventListener("click", () => {
-      window.location.href = "/";
+      window.location.href = "/login";
 });
 
-homeButtonButton.addEventListener("click", () => {
+homeButton.addEventListener("click", () => {
       window.location.href = "/";
 });

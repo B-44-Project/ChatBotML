@@ -23,16 +23,19 @@ a {
 section{
 	background: black;
 }
-a.btn {
+a.btn, button.btn {
 	border-radius: 25px;
 	text-transform: uppercase;
 	font-weight: bold;
 	text-align: center;
-	background-color: #0d0700;
+	background-color: #0d0700; 
 	opacity: 1;
 }
 
-a.btn:hover{
+button.btn{
+		background-color: #cec5bb; 
+}
+a.btn:hover, button.btn:hover {
   transform: translatey(-5px);
   box-shadow: 10px 10px 5px rgba(0,0,0,.1);
 }

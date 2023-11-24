@@ -10,7 +10,7 @@ from flask import (
 )
 
 from flask_session import Session
-import os
+import os, random
 from db import db
 
 app = Flask(
@@ -23,11 +23,15 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 Session(app)
 
-@app.route('/')
+@app.route('/', methods=['GET',"POST"])
 def index():
-    return render_template('index.html')
-
-
+    if request.method == "GET":
+        return render_template('index.html')
+    else:
+        data = request.form.to_dict() 
+        print(data)
+        return "SUccess"
+        
 @app.route('/dashboard')
 def dashboard():
     user = session.get('email', None)
@@ -47,6 +51,7 @@ def chat():
     
 @app.route("/logout")
 def logout():
+    
     session["email"] = None 
     return render_template(url_for("index"))
 
@@ -69,9 +74,17 @@ def reset():
     if request.method == 'GET':
         return render_template("reset.html")
     else:
-        pass
+        data = request.form.to_dict()  
+        print(data)
+        otp = "".join([random.choice("0123456789") for _ in range(6)]) 
+        print(otp)
+        email = data["email"]
+        session[f"{email}"] = otp
+        
+        print(session)
         
         
+
 @app.route("/otp", methods=["GET", "POST"])
 def otp():
     if request.method == 'GET':
