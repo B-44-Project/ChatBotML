@@ -126,7 +126,7 @@ h1{
     cursor: pointer;
 }
 
-.chat:hover .chat-content:not(:has(.typing-animation, .error)) span{
+.chat:hover .chat-content:not(.typing-animation):not(.error) span {
     visibility: visible;
 }
 
@@ -153,7 +153,7 @@ h1{
     color: #e55865;
 }
 
-span .material-symbols-outlined{
+span.material-symbols-outlined{
     user-select: none;
     cursor: pointer;
 }
@@ -376,6 +376,7 @@ button{
     }
 
     .chat-container {
+        width: auto;
         padding-bottom: 80px;
     }
 
@@ -393,19 +394,97 @@ button{
     }
 }
 
+/* Original CSS rules above... */
 
-.side-bar {
-    /* Other styles */
+@media only screen and (max-width: 400px) {
+    /* Adjust styles for screens up to 400px wide */
+    body {
+        flex-direction: column;
+    }
 
-    transition: transform 0.3s ease-in-out;
+    .side-bar {
+        width: 100%;
+        height: auto;
+        border: none;
+        display: none; /* Hide the sidebar by default on small screens */
+    }
+
+    .chat-container {
+        width: auto;
+        padding-bottom: 80px;
+    }
+
+    .history {
+        height: auto;
+    }
+
+    .typing-container {
+        width: 100%;
+    }
 }
 
-@media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 700px) {
+    /* Adjust styles for screens up to 700px wide */
+    .typing-container .typing-content {
+        overflow-x: auto;
+    }
 }
 
+@media only screen and (max-width: 900px) {
+    /* Adjust styles for screens up to 900px wide */
+    * {
+        box-sizing: border-box;
+    }
 
-600px
-768px
-992px
-1200px
+    .side-bar {
+        width: 150px;
+    }
+
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav span {
+        margin-top: 5px;
+        font-size: 1.2rem;
+    }
+
+    .typing-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .typing-control span {
+        font-size: 1.2rem;
+        margin-left: 10px;
+    }
+
+    .typing-content .typing-textarea {
+        width: 70%;
+        margin: 0;
+        vertical-align: top;
+    }
+
+    .typing-textarea {
+        padding: 5px 250px 5px 5px;
+    }
+
+    .typing-container .typing-content {
+        flex-wrap: wrap;
+    }
+
+    .typing-content span {
+        margin-left: 10px; /* Adjust the margin as needed */
+        margin-top: 10px; /* Add margin-top for better spacing */
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    /* Adjust styles for screens up to 1200px wide */
+    .side-bar {
+        width: 200px;
+    }
+}
+
+/* Additional media queries can be added as needed */
