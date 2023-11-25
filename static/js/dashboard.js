@@ -229,37 +229,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-
-  /*
-themeButton.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    localStorage.setItem("theme-color", themeButton.innerText);
-    themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
-});
-
-deleteButton.addEventListener("click", (event) => {
-    if (event.target === deleteButton) {
-      if (confirm("Are you sure want to delete all the chats?")) {
-        chatContainer.querySelectorAll('.chat').forEach(chat => chat.remove());
-
-        localStorage.removeItem("all-chats");
-        loadDataFromLocalStorage();
-      }
-    }
-  });
-
-chatInput.addEventListener("input", () => {
-    chatInput.style.height = `${initialHeight}px`;
-    chatInput.style.height = `${chatInput.scrollHeight}px`;
-});
-
-chatInput.addEventListener("keydown", (e) => {
-    if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800){
-        e.preventDefault();
-        handleOutgoingChat();
-    }
-});
-
-sendButton.addEventListener("click", handleOutgoingChat);
-*/
