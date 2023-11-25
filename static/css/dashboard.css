@@ -399,3 +399,13 @@ button{
 
     transition: transform 0.3s ease-in-out;
 }
+
+@media only screen and (max-width: 600px) {
+
+}
+
+
+600px
+768px
+992px
+1200px
