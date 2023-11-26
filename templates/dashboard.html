@@ -12,49 +12,112 @@
 </head>
 
 <body>
+  <nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="404-tick.png" alt="logo">
+            </span>
 
-  <!--Side Menu-->
-  <section class="side-bar" id="sidebar">
-    <button>New Chat</button>
-    <div class="history"></div>
-    <div class="nav">
-      <p>Made by ChatPLUS</p>
-      <span id="theme-btn" class="material-symbols-outlined">light_mode</span>
-      <span id="logout-btn" class="material-symbols-outlined">logout</span>
-    </div>
-  </section>
-
-  <!-- Button to open/close sidebar --><!--
-  <button onclick="hideshow()">Toggle Sidebar</button>
--->
-  <!--Main container-->
-  <div class="chat-container">
-
-    <div class="typing-container">
-      <!--Input field-->
-      <div class="typing-content">
-        <div class="typing-textarea">
-          <textarea id="chat-input" placeholder="Enter a prompt here" required></textarea>
-          <span id="send-btn" class="material-symbols-outlined">send</span>
+            <div class="text header-text">
+                <span class="name">chatPLUS</span>
+                <span class="profession">User</span>
+            </div>
         </div>
-        <div class="typing-control">
-          <span id="mic-btn" class="material-symbols-outlined">speech_to_text</span>
-          <span id="scan-btn" class="material-symbols-outlined">scan</span>
-          <span id="delete-btn" class="material-symbols-outlined">delete</span>
+
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-message-dots icon'></i>
+                        <span class="text nav-text">New Chat</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-history icon'></i>
+                        <span class="text nav-text">Chat History</span>
+                    </a>
+                </li>
+
+            </ul>
         </div>
-      </div>
-    </div>
 
-    <!--Popup window-->
-    <div class="popup" id="pop" >
-      <img src="{{ url_for('static', filename='images/404-tick.png') }}" alt="Tick Image">
-      <h2 style="color: black;">Thank you!</h2>
-      <p style="color: black;">Are you sure want to logout?</p>
-      <button class="btn1" id="confirmLogout">Yes</button>
-      <button class="btn1" id="cancelLogout">No</button>
-    </div>
+        <div class="bottom-content">
+            <li class="">
+                <a href="#">
+                    <i class='bx bx-help-circle icon'></i>
+                    <span class="text nav-text">Help</span>
+                </a>
+            </li>
 
-  </div>
+            <li class="">
+                <a id="logout-btn" href="#">
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text">Logout</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="moon-sun">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark Mode</span>
+
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </div>
+    </div>
+</nav>
+
+<section class="home">
+    <div class="text">
+        <div class="chat-container">
+
+            <!--Typing Container-->
+            <div class="typing-container">
+                <div class="typing-content">
+                    <div class="typing-textarea">
+                        <textarea id="chat-input" placeholder="Enter a prompt here" required></textarea>
+                        <span id="send-btn" class="material-symbols-outlined">send</span>
+                    </div>
+                    <div class="typing-controls">
+                        <span id="mic-btn" class="material-symbols-outlined">mic</span>
+                        <span id="scan-btn" class="material-symbols-outlined">scan</span>
+                        <span id="delete-btn" class="material-symbols-outlined">delete</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="popup" id="pop" >
+                <img src="{{ url_for('static', filename='images/404-tick.png') }}" alt="Tick Image">
+                <h2 style="color: black;">Thank you!</h2>
+                <p style="color: black;">Are you sure want to logout?</p>
+                <button class="btn1" id="confirmLogout">Yes</button>
+                <button class="btn1" id="cancelLogout">No</button>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
   
 </body>
 </html>

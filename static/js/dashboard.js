@@ -1,9 +1,12 @@
 //Declaring variables
+const sidebar = document.querySelector(".sidebar");
+const toggle = document.querySelector(".toggle");
+const modeSwitch = document.querySelector(".mode");
+const modeText = document.querySelector(".mode-text");
 const chatInput = document.querySelector("#chat-input");
 const sendButton = document.querySelector("#send-btn");
 const chatContainer = document.querySelector(".chat-container");
 const API_KEY = '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';
-const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
 const micBtn = document.querySelector("#mic-btn");
 
@@ -11,14 +14,22 @@ let userText = null;
 let initialHeight;
 
 function initializeApp() {
-    initialHeight = chatInput.scrollHeight;
+  initialHeight = chatInput.scrollHeight;
 
-    //Theme-btn function
-    themeButton.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-        localStorage.setItem("theme-color", themeButton.innerText);
-        themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
-    });
+  const body = document.body; // Add this line to define the 'body' variable
+
+  toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+  });
+
+  modeSwitch.addEventListener("click", () => {
+      body.classList.toggle("dark"); // Use the 'body' variable here
+      if (body.classList.contains("dark")) {
+          modeText.innerHTML = "Light Mode";
+      } else {
+          modeText.innerHTML = "Dark Mode";
+      }
+  });
 
     //Delete-btn function
     deleteButton.addEventListener("click", (event) => {
@@ -138,7 +149,7 @@ const speakResponse = (speakBtn) => {
 const showTypingAnimation = () => {
   const html = `<div class="chat-content">
       <div class="chat-details">
-          <img src="static/images/Logo2.png" alt="chatbot-img">
+      <img src="chat-bot-concept-illustration_114360-5522-modified.png" alt="chatbot-img">
           <div class="typing-animation">
               <div class="typing-dot" style="--delay: 0.2s"></div>
               <div class="typing-dot" style="--delay: 0.3s"></div>
@@ -163,7 +174,7 @@ const handleOutgoingChat = () => {
     
     const html = `<div class="chat-content">
         <div class="chat-details">
-            <img src="static/images/chat-bot-concept-illustration_114360-5522-modified.png" alt="user-img">
+            <img src="chat-bot-concept-illustration_114360-5522-modified.png" alt="user-img">
             <p></p>
         </div>
     </div>`;
@@ -229,19 +240,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-/*
-var div = document.getElementById('sidebar');
-var display = 0;
-
-function hideshow()
-{
-    if(display == 1){
-        div.style.display = 'block';
-        display = 0;
-    }else{
-        div.style.display = 'none';
-        display = 1;
-    }
-}
-*/
