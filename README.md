@@ -1,7 +1,7 @@
 # ChatBotML
 Customer Support ChatBot with Machine Learning
 
-# Overview
+## Overview
 This project is a Customer Support Chatbot that leverages Machine Learning (ML) and Natural Language Processing (NLP) technologies. The system is designed with a frontend using HTML, CSS, and JavaScript, a backend powered by MongoDb for data storage, and incorporates NLP and ML for intelligent chatbot responses.
 
 ## Features
@@ -24,3 +24,6 @@ This project is a Customer Support Chatbot that leverages Machine Learning (ML) 
 - **Algorithms:**
   - Natural Language Processing (NLP)
   - Machine Learning (ML) algorithms
+
+## Some Images of the working webpages
+<img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
