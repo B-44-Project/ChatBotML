@@ -41,7 +41,7 @@ def dashboard():
     if not user:
         #flash("Please login first!")
         return redirect(url_for('login'))
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', user=session["fname"])
 
 @app.route("/chat", methods=["POST", "GET"])
 def chat():
@@ -65,6 +65,7 @@ def login():
         data = request.form.to_dict() 
         x = db.users.find_one({"email":data.get('email')})
         if x and check_password_hash(x.get('pass'), data.get('pass')):
+            session["fname"] = x.get('fname')
             session['email'] = data.get('email')
             return redirect(url_for('dashboard'))
         #flash("Wrong credentials!", "danger")
