@@ -51,6 +51,12 @@ def chat():
     print(request.form.to_dict())
     return "Success"
     
+@app.route("/chathistory", methods=["POST", "GET"])
+def chathistory():
+    if request.method == "GET":
+        return render_template("chathistory.html")
+
+    
     
 @app.route("/logout")
 def logout():
