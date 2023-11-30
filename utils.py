@@ -11,7 +11,7 @@ sender_email = "ChatBotWithML@gmail.com"
 smtp_server = "smtp.gmail.com"
 smtp_port = 587
 
-# Your Gmail credentials
+# Gmail credentials
 username = "ChatBotWithML@gmail.com"
 password = "rbcuezxrezygoaek"
 

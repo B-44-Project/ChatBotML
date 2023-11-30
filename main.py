@@ -39,7 +39,7 @@ def index():
 def dashboard():
     user = session.get('email', None)
     if not user:
-        #flash("Please login first!")
+        flash("Please login first!", "green")
         return redirect(url_for('login'))
     return render_template('dashboard.html', user=session["fname"])
 
@@ -127,7 +127,7 @@ def verify():
 
 @app.route("/setpassword", methods=["GET", "POST"])     
 def setpassword():
-    print(otpstore)
+    #print(otpstore)
     if request.method == 'GET':
         if not session.get("otp_page") or not session:
             return redirect(url_for("reset"))  
@@ -141,8 +141,6 @@ def setpassword():
                 return "Incomplete, u not verified otp"
     else: 
         data = request.form.to_dict() 
-        #print(data)
-        # str(data) 
         email = data["email"]
         hashed_password = generate_password_hash(data["pass1"], method='pbkdf2:sha256')
 
