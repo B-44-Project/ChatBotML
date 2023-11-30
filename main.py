@@ -79,6 +79,7 @@ def chat():
             print(f"Error making request to OpenAI: {e}") 
             return jsonify({"error": "Not Found"}), 404
     
+    
 @app.route("/chathistory", methods=["POST", "GET"])
 def chathistory():
     if request.method == "GET":
@@ -116,10 +117,15 @@ def reset():
     if request.method == 'GET':
         return render_template("reset.html")
     else:
-        data = request.form.to_dict()
+        data = request.form.to_dict() 
+        email_exists = bool(db.users.find_one({"email": data["email"]})) 
+        if not email_exists:
+            flash("Account with the mail doesn't exist", "red")
+            return redirect(url_for('register'))     
+
         otp = "".join([random.choice("0123456789") for _ in range(6)]) 
         print(otp) 
-        sendmail(data["email"],otp)
+        sendmail(data["email"], otp)
         otpstore[data["email"]] = {"otp":str(otp), "time": time.time(), "isDone": False} 
         session["otp_page"] =True
         
@@ -143,11 +149,11 @@ def verify():
             daata = otpstore[email] 
             if int(time.time())-int(daata["time"]) <= 600: # 10 mins timeout
                 if codes==daata["otp"]: # correct otp
-                    print("passed")
                     otpstore[email]["isDone"] = True
                     return redirect(url_for("setpassword", email=email))
                 else:
-                    return "Wrong otp"
+                    flash("Invalid OTP, Try again", "red")
+                    return redirect(url_for("verify", email=email))
             else:
                 return "Timeout, Try sending otp again later"
         else:
@@ -155,7 +161,6 @@ def verify():
 
 @app.route("/setpassword", methods=["GET", "POST"])     
 def setpassword():
-    #print(otpstore)
     if request.method == 'GET':
         if not session.get("otp_page") or not session:
             return redirect(url_for("reset"))  
@@ -194,8 +199,9 @@ def register():
         if x:
             flash("User with this email already exist", "red")
             return redirect(url_for('register'))
-        #flash("Account created!", "success")
+        flash("Account created!", "green")
         db.users.insert_one({"fname":data.get('fname'), "email":data.get('email').lower(), "pnum":data.get('pnum'), "pass":generate_password_hash(data.get('pass'), method='pbkdf2:sha256')})
+        
         return redirect(url_for('login'))
 
 
