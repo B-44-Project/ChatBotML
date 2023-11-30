@@ -78,7 +78,7 @@ def login():
             session["fname"] = x.get('fname')
             session['email'] = data.get('email')
             return redirect(url_for('dashboard'))
-        #flash("Wrong credentials!", "danger")
+        flash("Wrong credentials!", "red") # msg and color for now
         return redirect(url_for('login'))
 
 
@@ -166,7 +166,7 @@ def register():
         print(data)
         x = db.users.find_one({"email":data.get('email')})
         if x:
-            #flash("User with this email already exist", "danger")
+            flash("User with this email already exist", "red")
             return redirect(url_for('register'))
         #flash("Account created!", "success")
         db.users.insert_one({"fname":data.get('fname'), "email":data.get('email').lower(), "pnum":data.get('pnum'), "pass":generate_password_hash(data.get('pass'), method='pbkdf2:sha256')})

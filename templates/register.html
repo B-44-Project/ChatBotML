@@ -99,6 +99,19 @@
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password" name="pass" required>
 
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %} 
+
+    <div class="error" id="error-message" style="color: {{ category }}; margin-top: 10px;"> 
+      {{ message }}.
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    
     <button type="submit" name="register">Register</button>
     <p>Already have account?&nbsp;&nbsp;<span><a href="/login">LOGIN NOW</a></span></p>
 
