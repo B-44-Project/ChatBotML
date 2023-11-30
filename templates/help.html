@@ -2,19 +2,25 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ's</title>
+
+    <!--Page Icon Link-->
     <link rel="icon" href="{{ url_for('static', filename='images/Logo.jpeg') }}" type="image/x-icon">
-    <link rel="stylesheet" href="help.css">
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--StyleSheet-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/help.css') }}">
+
+    <!--JavaScript-->
     <script src="{{ url_for('static', filename='js/help.js') }}" defer></script>
    </head>
 <body>
   <div class="accordion">
     <div class="image-box">
-      <img src="mainImg.png" alt="">
+      <img src="{{ url_for('static', filename='images/mainImg.png') }}" alt="">
     </div>
     <div class="accordion-text">
       <div class="title">FAQ</div>
