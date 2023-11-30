@@ -151,12 +151,11 @@ def setpassword():
         {"$set": {"pass": hashed_password}}
         ) 
         if result.matched_count == 1:
-            return f"Password updated successfully for user with email: {email}"
+            return render_template("exit.html")
         else:
             return f"No user found with email: {email}"
         
-        
-    
+            
            
 @app.route("/register", methods=["GET","POST"])
 def register():
