@@ -6,7 +6,6 @@ const modeText = document.querySelector(".mode-text");
 const chatInput = document.querySelector("#chat-input");
 const sendButton = document.querySelector("#send-btn");
 const chatContainer = document.querySelector(".chat-container");
-const API_KEY = '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';
 const deleteButton = document.querySelector("#delete-btn");
 const micBtn = document.querySelector("#mic-btn");
 
@@ -73,25 +72,23 @@ const createElement = (html, className) => {
 }
 
 const getChatResponse = async (incomingChatDiv, userText) => {
-  const API_URL = "https://api.openai.com/v1/chat/completions";
+  const API_URL = "/chat";
   const pElement = document.createElement("p");
 
   const requestOptions = {
-      method: 'POST',
-      headers: {
-          'Authorization': `Bearer ${API_KEY}`,
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-          "model": "gpt-3.5-turbo",
-          "messages": [{"role": "user", "content": userText}],
-          "temperature": 0.7
-      })
-  }
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "userText": userText
+    })
+  };
+
   try {
       const response = await (await fetch(API_URL, requestOptions)).json();
-      pElement.textContent = response.choices[0].message.content.trim();
-  } catch (error) {
+      pElement.textContent = response.message.trim();
+  } catch (error) { 
     pElement.classList.add("error");
       pElement.textContent = "Oops! Something went wrong while retrying the response. Please try again."
   }
@@ -103,6 +100,7 @@ const getChatResponse = async (incomingChatDiv, userText) => {
   chatContainer.scrollTo(0, chatContainer.scrollHeight);
   localStorage.setItem("all-chats", chatContainer.innerHTML);
 }
+
 
 const copyResponse = (copyBtn) => {
   const responseTextElement = copyBtn.parentElement.querySelector("p");
@@ -156,8 +154,8 @@ const showTypingAnimation = () => {
               <div class="typing-dot" style="--delay: 0.4s"></div>
           </div>
       </div>
-      <span onclick="copyResponse(this)" class="material-symbols-outlined">content_copy</span>
-      <span onclick="speakResponse(this)" class="material-symbols-outlined">select_to_speak</span>
+          <span onclick="copyResponse(this)" class="material-symbols-outlined">content_copy</span>
+          <span onclick="speakResponse(this)" class="material-symbols-outlined">select_to_speak</span>
   </div>`;
   const incomingChatDiv = createElement(html, "incoming");
   chatContainer.appendChild(incomingChatDiv);

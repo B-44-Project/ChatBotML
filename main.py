@@ -6,15 +6,23 @@ from flask import (
     redirect, 
     url_for, 
     flash, 
-    request
+    request,
+    jsonify
 )
 
 from flask_session import Session
 import os, random, time
 from db import db
 from utils import sendmail
+import requests
+import json
 
 otpstore = {}
+
+
+API_URL = "https://api.openai.com/v1/chat/completions"
+API_KEY = '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' 
+
 
 app = Flask(
     __name__,
@@ -43,13 +51,33 @@ def dashboard():
         return redirect(url_for('login'))
     return render_template('dashboard.html', user=session["fname"])
 
+
 @app.route("/chat", methods=["POST", "GET"])
 def chat():
     if request.method == "GET":
         return 404
-    
-    print(request.form.to_dict())
-    return "Success"
+    else:  
+        user_text = request.json["userText"] 
+        headers = {
+        'Authorization': f'Bearer {API_KEY}',
+        'Content-Type': 'application/json'
+        }    
+
+        data = {
+        "model": "gpt-3.5-turbo",
+        "messages": [{"role": "user", "content": user_text}],
+        "temperature": 0.7
+        }
+
+        try:
+            response = requests.post(API_URL, headers=headers, json=data)
+            response_data = response.json()
+            content = response_data["choices"][0]["message"]["content"].strip()
+            return jsonify({"message": content}), 200
+
+        except Exception as e:
+            print(f"Error making request to OpenAI: {e}") 
+            return jsonify({"error": "Not Found"}), 404
     
 @app.route("/chathistory", methods=["POST", "GET"])
 def chathistory():
