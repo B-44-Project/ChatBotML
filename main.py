@@ -155,7 +155,8 @@ def verify():
                     flash("Invalid OTP, Try again", "red")
                     return redirect(url_for("verify", email=email))
             else:
-                return "Timeout, Try sending otp again later"
+                flash("Timeout, Try sending otp again later","red") 
+                return redirect(url_for("verify", email=email))
         else:
             return redirect(url_for("reset"))
 
