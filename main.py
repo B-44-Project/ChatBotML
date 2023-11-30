@@ -56,7 +56,11 @@ def chathistory():
     if request.method == "GET":
         return render_template("chathistory.html")
 
-    
+@app.route("/help", methods=["POST", "GET"])
+def help():
+    if request.method == "GET":
+        return render_template("help.html")
+
     
 @app.route("/logout")
 def logout():
