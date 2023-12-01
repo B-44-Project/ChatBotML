@@ -93,12 +93,13 @@ def help():
     if request.method == "GET":
         return render_template("help.html")
 
-    
+#logout page    
 @app.route("/logout")
 def logout():
     session["email"] = None 
     return render_template(url_for("index"))
 
+#login page
 @app.route("/login", methods=["GET","POST"])
 def login():
     if request.method == "GET":
@@ -113,8 +114,7 @@ def login():
         flash("Wrong credentials!") # msg and color for now
         return redirect(url_for('login'))
 
-
-
+#reset password page
 @app.route("/reset", methods=["GET", "POST"])
 def reset():
     if request.method == 'GET':
@@ -134,8 +134,7 @@ def reset():
         
         return redirect(url_for("verify", email=data["email"]))
         
-        
-
+#verifying otp page        
 @app.route("/verify", methods=["GET","POST"])
 def verify():
     if request.method == 'GET':
@@ -162,6 +161,7 @@ def verify():
                 return redirect(url_for("verify", email=email))
         else:
             return redirect(url_for("reset"))
+
 
 @app.route("/setpassword", methods=["GET", "POST"])     
 def setpassword():
@@ -190,8 +190,7 @@ def setpassword():
         else:
             return f"No user found with email: {email}"
         
-            
-           
+#register page                   
 @app.route("/register", methods=["GET","POST"])
 def register():
     if request.method == "GET":
