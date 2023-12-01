@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/otp.css') }}">
     <script src="{{ url_for('static', filename='js/otp.js') }}" defer></script>
 </head>
+
 <body>
     <div class="container">
         <h2>Verify your Account</h2>
@@ -15,40 +17,41 @@
             Enter the code below to confirm your email address.
         </p>
         <form method="post">
-        <div class="code-container">
-            <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
-            <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
-            <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
-            <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
-            <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
-            <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
-            
-            <input type="hidden" name="email" value={{email}} />
+            <div class="code-container">
+                <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
+                <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
+                <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
+                <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
+                <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
+                <input type="number" class="code" name="code" placeholder="0" min="0" max="9" required>
 
-        </div>
+                <input type="hidden" name="email" value={{email}} />
 
-        
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        {% for category, message in messages %} 
-    
-        <div class="error" id="error-message" style="color: {{ category }}; margin-top: 10px;"> 
-          {{ message }}
-        </div> 
-        <br />
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-    
-        <div>
-            <button type="submit" class="btn btn-primary">verify</button>
-        </div>
+            </div>
+
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+
+            <div class="error" id="error-message" style="color: {{ category }}; margin-top: 10px;">
+                {{ message }}
+            </div>
+            <br />
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div>
+                <button type="submit" class="btn btn-primary">verify</button>
+            </div>
         </form>
-<!--
+        <!--
         <small>
             If you didn't receive a code !! <strong>RESEND</strong>
         </small>
     </div>
 -->
 </body>
+
 </html>

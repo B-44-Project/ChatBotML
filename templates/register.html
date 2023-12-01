@@ -48,9 +48,9 @@
           /*#1845ad,
         #23a2f68*/
         );
-        animation: move 20s linear infinite;
-        left: -80px;
-        top: -80px;
+      animation: move 20s linear infinite;
+      left: -80px;
+      top: -80px;
     }
 
     .shape1:last-child {
@@ -60,26 +60,25 @@
           /*#ff512f,
         #f09819*/
         );
-        animation: move 15s linear infinite;
-        right: -80px;
-        bottom: -80px;
+      animation: move 15s linear infinite;
+      right: -80px;
+      bottom: -80px;
     }
 
-    form .error{
+    form .error {
       color: red;
       margin-top: 10px;
     }
 
-      input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
-             -webkit-appearance: none;
-              margin: 0;
-      }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
-      input[type=number] {
-          -moz-appearance: textfield;
-      }
-
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
   </style>
 </head>
 
@@ -106,16 +105,16 @@
 
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-    {% for category, message in messages %} 
+    {% for category, message in messages %}
 
-    <div class="error" id="error-message"> 
+    <div class="error" id="error-message">
       {{ message }}
     </div>
     {% endfor %}
     {% endif %}
     {% endwith %}
 
-    
+
     <button type="submit" name="register">Register</button>
     <p>Already have account?&nbsp;&nbsp;<span><a href="/login">LOGIN NOW</a></span></p>
 
