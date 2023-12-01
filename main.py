@@ -34,6 +34,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 Session(app)
 
+#index page
 @app.route('/', methods=['GET',"POST"])
 def index():
     if request.method == "GET":
@@ -43,6 +44,7 @@ def index():
         print(data)
         return "SUccess"
         
+#dashboard page        
 @app.route('/dashboard')
 def dashboard():
     user = session.get('email', None)
@@ -85,6 +87,7 @@ def chathistory():
     if request.method == "GET":
         return render_template("chathistory.html")
 
+#help page
 @app.route("/help", methods=["POST", "GET"])
 def help():
     if request.method == "GET":
@@ -107,7 +110,7 @@ def login():
             session["fname"] = x.get('fname')
             session['email'] = data.get('email')
             return redirect(url_for('dashboard'))
-        flash("Wrong credentials!", "red") # msg and color for now
+        flash("Wrong credentials!") # msg and color for now
         return redirect(url_for('login'))
 
 
