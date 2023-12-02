@@ -9,6 +9,7 @@ class Db:
         self.client = pymongo.MongoClient(connection_string)
         self.db = self.client["ChatBot"]
         self.users = self.db["users"]
+        self.chats = self.db["conversations"]
         self.collection = self.db["abcd2"]
         self.cat = "hi"
         self.cache = {}
