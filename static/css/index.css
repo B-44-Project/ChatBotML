@@ -408,6 +408,20 @@ footer p {
   
 @media (max-width: 600px) {
 	/* Adjustments for mobile devices */
+	.hero{
+		display: grid;
+		align-items: center;
+		background: linear-gradient(to bottom, white, black);
+	}
+
+	.hero h1{
+		font: bold 35px "Garamond", sans-serif;
+	}
+
+	.hero h3{
+		font: normal 18px "Open sans", sans-serif;
+	}
+
 	header {
 	  padding: 20px 5%;
 	  flex-direction: column;
