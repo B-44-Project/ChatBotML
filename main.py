@@ -49,7 +49,7 @@ def index():
 def dashboard():
     user = session.get('email', None)
     if not user:
-        flash("Please login first!", "green")
+        flash("Please login first!", "success")
         return redirect(url_for('login'))
     return render_template('dashboard.html', user=session["fname"])
 
@@ -111,7 +111,7 @@ def login():
             session["fname"] = x.get('fname')
             session['email'] = data.get('email')
             return redirect(url_for('dashboard'))
-        flash("Wrong credentials!") # msg and color for now
+        flash("Wrong credentials!", "error") # msg and color for now
         return redirect(url_for('login'))
 
 #reset password page
@@ -123,7 +123,7 @@ def reset():
         data = request.form.to_dict() 
         email_exists = bool(db.users.find_one({"email": data["email"]})) 
         if not email_exists:
-            flash("Account with the mail doesn't exist", "red")
+            flash("Account with the mail doesn't exist", "error")
             return redirect(url_for('register'))     
 
         otp = "".join([random.choice("0123456789") for _ in range(6)]) 
@@ -154,10 +154,10 @@ def verify():
                     otpstore[email]["isDone"] = True
                     return redirect(url_for("setpassword", email=email))
                 else:
-                    flash("Invalid OTP, Try again", "red")
+                    flash("Invalid OTP, Try again", "error")
                     return redirect(url_for("verify", email=email))
             else:
-                flash("Timeout, Try sending otp again later","red") 
+                flash("Timeout, Try sending otp again later","error") 
                 return redirect(url_for("verify", email=email))
         else:
             return redirect(url_for("reset"))
@@ -200,9 +200,9 @@ def register():
         print(data)
         x = db.users.find_one({"email":data.get('email')})
         if x:
-            flash("User with this email already exist", "red")
+            flash("User with this email already exist", "error")
             return redirect(url_for('register'))
-        flash("Account created!", "green")
+        flash("Account created!", "success")
         db.users.insert_one({"fname":data.get('fname'), "email":data.get('email').lower(), "pnum":data.get('pnum'), "pass":generate_password_hash(data.get('pass'), method='pbkdf2:sha256')})
         
         return redirect(url_for('login'))

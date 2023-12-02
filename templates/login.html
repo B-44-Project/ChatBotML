@@ -30,7 +30,7 @@
     {% if messages %}
     {% for category, message in messages %}
 
-    <div class="error" id="error-message">
+    <div class="{{ category }}" id="error-message">
       {{ message }}
     </div>
     {% endfor %}
