@@ -434,6 +434,18 @@ footer p {
 	header nav {
 	  margin-right: 0;
 	}
+
+	.contact form input{
+		width: 100%;
+		max-width: 200px;
+	}
+
+	.contact form .btn{
+		width: 100%;
+		max-width: 10px;
+		padding: 18px 52px;
+		text-align: center;
+	}
 }
 
 /*toogle */
