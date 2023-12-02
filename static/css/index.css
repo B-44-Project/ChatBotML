@@ -151,19 +151,6 @@ header nav li :active {
 	transition: 0.5s ease-out;
 }
 
-
-@media (max-width: 300px) {
-	header {
-		padding: 20px 50px;
-		flex-direction: column;
-	}
-
-	header h2 {
-		margin-bottom: 15px;
-	}
-}
-
-
 .hero{
 	display: grid;
 	align-items: center;
@@ -219,21 +206,6 @@ header nav li :active {
 	}
 }
 
-@media (max-width: 300px) {
-
-	.hero h1 {
-		font-size: 48px;
-	}
-
-	.hero h3 {
-		font-size: 24px;
-	}
-
-	.hero a.btn {
-		padding: 15px 40px;
-	}
-}
-
 .offer .grid li {
 	padding: 50px;
 	flex-basis: 50%;
@@ -251,13 +223,6 @@ header nav li :active {
 .offer .grid li h4 {
 	font-size: 50px;
 	margin: 25px 0;
-}
-
-@media (max-width: 800px) {
-	.offer .grid li {
-		flex-basis: 100%;
-		padding: 20px;
-	}
 }
 
 /*faq*/
@@ -317,13 +282,6 @@ svg{
   }
 }
 
-@media (max-width: 300px) {
-	section {
-		padding: 50px 20px;
-	}
-}
-
-
 .contact form {
 	display: flex;
 	align-items: center;
@@ -361,15 +319,6 @@ svg{
 	box-shadow: 10px 10px 5px rgb(52, 51, 51);
 }
 
-@media (max-width: 1000px) {
-	.contact form input {
-		flex-basis: 100%;
-		margin: 0 0 20px 0;
-	}
-}
-
-
-
 footer {
 	display: flex;
 	align-items: center;
@@ -406,21 +355,6 @@ footer p {
 	align-self: center;
 }
 
-@media (max-width: 1100px) {
-	footer {
-		flex-direction: column;
-	}
-
-	footer p {
-		text-align: center;
-		margin-bottom: 20px;
-	}
-
-	footer ul li {
-		margin: 0 8px;
-	}
-}
-
 /*custom scroll bar*/
 ::-webkit-scrollbar{
   width: 10px;
@@ -435,4 +369,55 @@ footer p {
   border-radius: 10px;
 }
 
-/*footer*/
+/*@media-queries*/
+
+@media (max-width: 1200px) {
+	/* Adjustments for laptops and smaller screens */
+	header {
+	  padding: 20px 5%;
+	}
+  
+	.hero h1 {
+	  font-size: 48px;
+	}
+  
+	.hero h3 {
+	  font-size: 24px;
+	}
+  
+	.hero a.btn {
+	  padding: 15px 40px;
+	}
+  
+	/* Add more adjustments as needed */
+}
+  
+@media (max-width: 800px) {
+	/* Adjustments for tablets and smaller screens */
+	section {
+	  padding: 80px 40px;
+	}
+  
+	.offer .grid li {
+	  flex-basis: 100%;
+	  padding: 20px;
+	}
+  
+	/* Add more adjustments as needed */
+}
+  
+@media (max-width: 600px) {
+	/* Adjustments for mobile devices */
+	header {
+	  padding: 20px 5%;
+	  flex-direction: column;
+	}
+  
+	header h2 {
+	  margin-bottom: 15px;
+	}
+  
+	header nav {
+	  margin-right: 0;
+	}
+}
