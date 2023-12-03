@@ -17,11 +17,13 @@ nav{
   display: flex;
   height: 80px;
   width: 100%;
-  background: #fff;
+  background: #e1dede;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
   flex-wrap: wrap;
+  position: fixed;
+  z-index: 1000;
 }
 nav .logo{
     align-self:  flex-start;
@@ -123,7 +125,7 @@ section {
 	flex-direction: column;
 	align-items: center;
 	padding: 100px 80px;
-    background: black;
+  background: black;
 }
 
 
@@ -161,19 +163,21 @@ section p {
 
 .hero{
 	display: grid;
-	align-items: center;
-	background: linear-gradient(to bottom, white, black);
-    padding: 20px 80px;
+  align-items: center;
+  background: linear-gradient(to bottom, white, black);
+  padding: 100px 80px;
+  position: relative;
+  z-index: 1;
 }
 .hero h1 {
 	font: bold 80px "Garamond", sans-serif;
-	margin-bottom: 15px;
-	margin-top: 30px;
-	max-width: 50%;
-	max-height: 15%;
-    float: left;
-    align-items: center;
-    color: black;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  max-width: 50%;
+  max-height: 15%;
+  float: left;
+  align-items: center;
+  color: black;
 }
 
 .hero-content {
@@ -204,8 +208,10 @@ section p {
 
 .hero-content-area {
   flex: 1;
-	opacity: 0;
-	animation: 1s slidefade 1s forwards;
+  opacity: 0;
+  animation: 1s slidefade 1s forwards;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes slidefade {
