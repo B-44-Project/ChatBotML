@@ -32,8 +32,15 @@ CHATBOTML/
 |-- __pycache
 |-- .venv
 |-- flask_session
-|-- static
-|-- templates
+|-- static/
+    |-- CSS
+    |-- images
+    |-- js
+|-- templates/
+    |-- chathistory.html
+    |-- dashboard.html
+    |-- exit.html
+    |-- help.html
 |-- db.py
 |-- main.py
 |-- train.py
