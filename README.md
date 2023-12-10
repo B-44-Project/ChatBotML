@@ -25,5 +25,22 @@ This project is a Customer Support Chatbot that leverages Machine Learning (ML) 
   - Natural Language Processing (NLP)
   - Machine Learning (ML) algorithms
 
+## File Structure
+
+```
+CHATBOTML/
+|-- __pycache
+|-- .venv
+|-- flask_session
+|-- static
+|-- templates
+|-- db.py
+|-- main.py
+|-- train.py
+|-- train2.py
+|-- utils.py
+|-- verel.json
+```
+
 ## Some Images of the working webpages
 <img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
