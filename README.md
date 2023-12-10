@@ -33,7 +33,15 @@ CHATBOTML/
 |-- .venv
 |-- flask_session
 |-- static/
-    |-- CSS
+    |-- CSS/
+        |-- chathistory.css
+        |-- dashboard.css
+        |-- exit.css
+        |-- help.css
+        |-- index.css
+        |-- login.css
+        |-- notfound.css
+        |-- otp.css
     |-- images
     |-- js
 |-- templates/
