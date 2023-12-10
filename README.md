@@ -26,7 +26,7 @@ This project is a Customer Support Chatbot that leverages Machine Learning (ML) 
   - Machine Learning (ML) algorithms
 
 ## File Structure
-
+```
 CHATBOTML/
 |-- __pycache/
 |-- .venv/
@@ -54,7 +54,7 @@ CHATBOTML/
 |-- train2.py
 |-- utils.py
 |-- verel.json
-
+```
 
 ## Some Images of the working webpages
 <img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
