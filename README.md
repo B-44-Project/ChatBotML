@@ -27,35 +27,34 @@ This project is a Customer Support Chatbot that leverages Machine Learning (ML) 
 
 ## File Structure
 
-```
 CHATBOTML/
-|-- __pycache
-|-- .venv
-|-- flask_session
+|-- __pycache/
+|-- .venv/
+|-- flask_session/
 |-- static/
-    |-- CSS/
-    |   |-- chathistory.css
-    |   |-- dashboard.css
-    |   |-- exit.css
-    |   |-- help.css
-    |   |-- index.css
-    |   |-- login.css
-    |   |-- notfound.css
-    |   |-- otp.css
-    |-- images
-    |-- js
+|   |-- CSS/
+|   |   |-- chathistory.css
+|   |   |-- dashboard.css
+|   |   |-- exit.css
+|   |   |-- help.css
+|   |   |-- index.css
+|   |   |-- login.css
+|   |   |-- notfound.css
+|   |   |-- otp.css
+|   |-- images/
+|   |-- js/
 |-- templates/
-    |-- chathistory.html
-    |-- dashboard.html
-    |-- exit.html
-    |-- help.html
+|   |-- chathistory.html
+|   |-- dashboard.html
+|   |-- exit.html
+|   |-- help.html
 |-- db.py
 |-- main.py
 |-- train.py
 |-- train2.py
 |-- utils.py
 |-- verel.json
-```
+
 
 ## Some Images of the working webpages
 <img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
