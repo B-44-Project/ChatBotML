@@ -147,7 +147,7 @@ const speakResponse = (speakBtn) => {
 const showTypingAnimation = () => {
   const html = `<div class="chat-content">
       <div class="chat-details">
-      <img src="static/images/chat-bot-concept-illustration_114360-5522-modified.png" alt="chatbot-img">
+      <img src="static/images/1_C_LFPy6TagD1SEN5SwmVRQ.jpg" alt="chatbot-img">
           <div class="typing-animation">
               <div class="typing-dot" style="--delay: 0.2s"></div>
               <div class="typing-dot" style="--delay: 0.3s"></div>
@@ -172,7 +172,7 @@ const handleOutgoingChat = () => {
     
     const html = `<div class="chat-content">
         <div class="chat-details">
-            <img src="static/images/chat-bot-concept-illustration_114360-5522-modified.png" alt="user-img">
+            <img src="static/images/business+costume+male+man+office+user+icon-1320196264882354682.png" alt="user-img">
             <p></p>
         </div>
     </div>`;
