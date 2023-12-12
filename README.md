@@ -1,5 +1,4 @@
-# ChatBotML
-Customer Support ChatBot with Machine Learning
+# Customer Support ChatBot with Machine Learning, Ollema
 
 ## Overview
 This project is a Customer Support Chatbot that leverages Machine Learning (ML) and Natural Language Processing (NLP) technologies. The system is designed with a frontend using HTML, CSS, and JavaScript, a backend powered by MongoDb for data storage, and incorporates NLP and ML for intelligent chatbot responses.
