@@ -82,5 +82,13 @@ git clone https://github.com/your-username/customer-support-chatbot.git
 cd customer-support-chatbot
 ```
 
+3. Install Dependencies:
+```
+pip install -r requirements.txt
+```
+
 ## Some Images of the working webpages
 <img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
+
+## Contact
+For questions or inquiries, please contact chatbotml@gmail.com.
