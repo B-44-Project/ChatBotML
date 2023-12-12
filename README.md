@@ -12,11 +12,15 @@ questions, changing how customer service is provided by taking a thorough and
 formally organized approach.
 
 ## Features
-- **Interactive Chat Interface:** User-friendly chat interface allowing customers to interact with the chatbot seamlessly.
+- **Natural Language Processing (NLP):** The chatbot employs advanced NLP techniques to understand and interpret user queries, enabling more accurate and context-aware responses.
 
-- **Machine Learning Integration:** ML algorithms are employed to enhance the chatbot's understanding and responsiveness over time.
+- **Intent Recognition:** Using ML models, the chatbot identifies the intent behind customer queries, allowing it to respond appropriately and direct users to the relevant information or support resources.
 
-- **Database Backend:** MongoDb database is utilized for storing and retrieving relevant data, ensuring a persistent and scalable solution.
+- **Multichannel Support:** The chatbot is designed to work across multiple communication channels, such as web chat, messaging apps, and more, ensuring a seamless and consistent customer support experience.
+
+- **Learning and Improvement:** The chatbot incorporates a learning mechanism that allows it to continuously improve its responses over time based on user interactions. This ensures that the chatbot adapts to changing customer needs and evolves with the business.
+
+- **Integration with Backend Systems:** The chatbot is integrated with backend systems, enabling it to retrieve real-time information and provide up-to-date responses to customer queries.
 
 ## Technologies Used
 
@@ -95,6 +99,14 @@ cd customer-support-chatbot
 ```
 pip install -r requirements.txt
 ```
+
+## Usage
+1. Run the chatbot application:
+```
+python main.py
+```
+
+2. Access the chatbot through the specified endpoint or integration point.
 
 ## Some Images of the working webpages
 <img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
