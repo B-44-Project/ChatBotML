@@ -48,6 +48,12 @@ CHATBOTML/
 |   |-- dashboard.html
 |   |-- exit.html
 |   |-- help.html
+|   |-- index.html
+|   |-- login.html
+|   |-- notfound.html
+|   |-- otp.html
+|   |-- register.html
+|   |-- 
 |-- db.py
 |-- main.py
 |-- train.py
