@@ -25,7 +25,7 @@ This project is a Customer Support Chatbot that leverages Machine Learning (ML) 
   - Natural Language Processing (NLP)
   - Machine Learning (ML) algorithms
 
-## File Structure
+## Folder Structure
 ```
 CHATBOTML/
 |-- __pycache/
