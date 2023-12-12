@@ -69,16 +69,17 @@ CHATBOTML/
 ## Prerequisites
 - Python >3.10
 - Pip
-- Virtual Environment
+- Virtual Environment-
+- MongoDB
 
 ## Installation
 1. Clone the repository:
-```
+```bash
 git clone https://github.com/your-username/customer-support-chatbot.git
 ```
 
 2. Navigate to the project directory:
-```
+```bash
 cd customer-support-chatbot
 ```
 
