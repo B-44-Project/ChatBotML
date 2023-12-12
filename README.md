@@ -66,5 +66,21 @@ CHATBOTML/
 |-- verel.json
 ```
 
+## Prerequisites
+- Python >3.10
+- Pip
+- Virtual Environment
+
+## Installation
+1. Clone the repository:
+```
+git clone https://github.com/your-username/customer-support-chatbot.git
+```
+
+2. Navigate to the project directory:
+```
+cd customer-support-chatbot
+```
+
 ## Some Images of the working webpages
 <img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
