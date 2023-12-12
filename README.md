@@ -43,6 +43,10 @@ CHATBOTML/
 |   |   |-- otp.css
 |   |-- images/
 |   |-- js/
+|   |   |-- dashboard.js
+|   |   |-- help.js
+|   |   |-- notfound.js
+|   |   |-- otp.js
 |-- templates/
 |   |-- chathistory.html
 |   |-- dashboard.html
@@ -53,7 +57,8 @@ CHATBOTML/
 |   |-- notfound.html
 |   |-- otp.html
 |   |-- register.html
-|   |-- 
+|   |-- reset.html
+|   |-- setpassword.html
 |-- db.py
 |-- main.py
 |-- train.py
