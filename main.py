@@ -55,6 +55,7 @@ def chat():
     if request.method == "GET":
         return 404
     else:  
+        # https://gist.github.com/mberman84/a1291cfb08d0a37c3d439028f3bc5f26
         user_text = request.json["userText"]  
 
         intent = getintent(user_text)
