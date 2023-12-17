@@ -1,11 +1,10 @@
 flask
 flask-cors
 flask-session
-#flask-socketio
 gevent
 socketio
-nltk
-spacy
-transformers
 pymongo
-
+pandas
+scikit-learn
+joblib
+dill

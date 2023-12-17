@@ -1,3 +1,6 @@
+# MOdel: https://colab.research.google.com/drive/1dCwP2CtLm7GRv5mnnmuREYgrdhmr-O1s?usp=sharing
+
+
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -15,7 +18,9 @@ smtp_port = 587
 username = "ChatBotWithML@gmail.com"
 password = "rbcuezxrezygoaek"
 
-
+import requests
+API_URL = "https://api.openai.com/v1/chat/completions"
+API_KEY = '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' 
 
 
 def sendmail(recipient_email, otp):
@@ -92,3 +97,53 @@ def sendmail(recipient_email, otp):
         server.sendmail(sender_email, recipient_email, message.as_string())
 
     print("Email sent successfully!")
+    
+    
+def openaichat(message):
+        user_text = message
+        headers = {
+        'Authorization': f'Bearer {API_KEY}',
+        'Content-Type': 'application/json'
+        }    
+
+        data = {
+        "model": "gpt-3.5-turbo",
+        "messages": [{"role": "user", "content": user_text}],
+        "temperature": 0.7
+        }
+
+        try:
+            response = requests.post(API_URL, headers=headers, json=data)
+            response_data = response.json()
+            content = response_data["choices"][0]["message"]["content"].strip() 
+            return content, 200
+        except Exception as e: 
+            return f"Error making request to OpenAI: {e}", 404
+        
+def getintent(message):
+    import pandas 
+    from joblib import dump, load
+    model = load('model/intent.joblib')
+    new_query = [message]
+    prediction = model.predict(new_query)
+    #print("Predicted Intent:", prediction)
+    return prediction[0]
+    
+def chatwithollama(message):
+    import json
+    
+    body = {
+    "model": "ThinkBot",
+    "prompt": message,
+    "stream": False
+}
+    json_body = json.dumps(body)
+
+    url = "http://localhost:11434/api/generate"
+    headers = {"Content-Type": "application/json"}
+
+    res = requests.post(url, headers=headers, data=json_body)
+    decoded_response = res.json()
+    response_content = decoded_response
+    print(response_content) 
+    return response_content

@@ -13,16 +13,12 @@ from flask import (
 from flask_session import Session
 import os, random, time
 from db import db
-from utils import sendmail
+from utils import sendmail, openaichat, getintent, chatwithollama
 import requests
 import json
+import re
 
 otpstore = {}
-
-
-API_URL = "https://api.openai.com/v1/chat/completions"
-API_KEY = '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' 
-
 
 app = Flask(
     __name__,
@@ -59,27 +55,33 @@ def chat():
     if request.method == "GET":
         return 404
     else:  
-        user_text = request.json["userText"] 
-        headers = {
-        'Authorization': f'Bearer {API_KEY}',
-        'Content-Type': 'application/json'
-        }    
+        user_text = request.json["userText"]  
 
-        data = {
-        "model": "gpt-3.5-turbo",
-        "messages": [{"role": "user", "content": user_text}],
-        "temperature": 0.7
-        }
+        intent = getintent(user_text)
+        print(intent) 
+        # Add intent details to final msg if found, else do nothing
+        opintent = f"Detected Intent is:{intent}\n\n" if intent != "unknown" else ""
+            
+        # search order id
+        pattern = r"\b[1-3][0-9]{1,2}\b"  # 1-300 order id
+        
+        match = re.search(pattern, user_text) 
+        if match:
+            order_id = match.group(0) 
+            print("order id detected", order_id)
+            # get order details from db and append it to user msg within bracket
+            user_text += f"(Order id detected, order details: {order_id}, status: delayed by 2 days)"
+        
+        content, rtype = openaichat(user_text)  
+        #content, rtype = chatwithollama(user_text)  
+        
+        
 
-        try:
-            response = requests.post(API_URL, headers=headers, json=data)
-            response_data = response.json()
-            content = response_data["choices"][0]["message"]["content"].strip()
-            return jsonify({"message": content}), 200
+        if rtype==404:
+            return jsonify({"error": "Not Found"}), 404 
+        else:
+            return jsonify({"message": f"{opintent}{content}"}), 200
 
-        except Exception as e:
-            print(f"Error making request to OpenAI: {e}") 
-            return jsonify({"error": "Not Found"}), 404
     
     
 @app.route("/chathistory", methods=["POST", "GET"])
