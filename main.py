@@ -19,6 +19,8 @@ import json
 import re
 
 otpstore = {}
+conversation_history = []
+
 
 app = Flask(
     __name__,
@@ -55,9 +57,13 @@ def chat():
     if request.method == "GET":
         return 404
     else:  
-        # https://gist.github.com/mberman84/a1291cfb08d0a37c3d439028f3bc5f26
+        # Ref: https://gist.github.com/mberman84/a1291cfb08d0a37c3d439028f3bc5f26
         user_text = request.json["userText"]  
+        conversation_history.append(f"User: {user_text}")
 
+        full_prompt = "\n".join(conversation_history)
+        
+        
         intent = getintent(user_text)
         print(intent) 
         # Add intent details to final msg if found, else do nothing
@@ -72,11 +78,15 @@ def chat():
             print("order id detected", order_id)
             # get order details from db and append it to user msg within bracket
             user_text += f"(Order id detected, order details: {order_id}, status: delayed by 2 days)"
+            full_prompt += f"(Order id detected, order details: {order_id}, status: delayed by 2 days)"
         
-        content, rtype = openaichat(user_text)  
-        #content, rtype = chatwithollama(user_text)  
+        full_prompt += f"\nBot: " 
         
+        print(full_prompt) 
+        #content, rtype = openaichat(full_prompt)  
+        content, rtype = chatwithollama(user_text)  
         
+        conversation_history.append(f"Bot: {content}")
 
         if rtype==404:
             return jsonify({"error": "Not Found"}), 404 
