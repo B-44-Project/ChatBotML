@@ -1,3 +1,7 @@
+import sys
+# uncomment below line in mac
+#sys.path.append('/Users/dheeraj/Documents/Project/venv/lib/python3.9/site-packages')
+
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import (
     Flask,
