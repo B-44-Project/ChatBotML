@@ -107,4 +107,4 @@ python main.py
 <img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
 
 ## Contact
-For questions or inquiries, please contact chatbotml@gmail.com.
+For questions or inquiries, please contact chatbotwithml@gmail.com.
