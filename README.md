@@ -72,8 +72,6 @@ CHATBOTML/
 |   |-- setpassword.html
 |-- db.py
 |-- main.py
-|-- train.py
-|-- train2.py
 |-- utils.py
 |-- verel.json
 ```
@@ -81,7 +79,7 @@ CHATBOTML/
 ## Prerequisites
 - Python >3.10
 - Pip
-- Virtual Environment-
+- Virtual Environment
 - MongoDB
 
 ## Installation
