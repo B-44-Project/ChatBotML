@@ -148,3 +148,12 @@ body{
     width: 98%;
   }
 }
+
+.accordion-text .faq-text li p a {
+  color: #e50f0f;
+  text-decoration: none;
+}
+
+.accordion-text .faq-text li p a:hover{
+  color: #7d2ae8;
+}
