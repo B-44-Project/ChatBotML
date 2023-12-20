@@ -39,9 +39,6 @@ formally organized approach.
 ## Folder Structure
 ```
 CHATBOTML/
-|-- __pycache/
-|-- .venv/
-|-- flask_session/
 |-- static/
 |   |-- CSS/
 |   |   |-- chathistory.css
