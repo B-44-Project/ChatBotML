@@ -39,9 +39,6 @@ formally organized approach.
 ## Folder Structure
 ```
 CHATBOTML/
-|-- __pycache/
-|-- .venv/
-|-- flask_session/
 |-- static/
 |   |-- CSS/
 |   |   |-- chathistory.css
@@ -72,8 +69,6 @@ CHATBOTML/
 |   |-- setpassword.html
 |-- db.py
 |-- main.py
-|-- train.py
-|-- train2.py
 |-- utils.py
 |-- verel.json
 ```
@@ -81,7 +76,7 @@ CHATBOTML/
 ## Prerequisites
 - Python >3.10
 - Pip
-- Virtual Environment-
+- Virtual Environment
 - MongoDB
 
 ## Installation
@@ -112,4 +107,4 @@ python main.py
 <img src="Screenshot 2023-11-24 074151.png" alt="Image Alt text" width="300"/>
 
 ## Contact
-For questions or inquiries, please contact chatbotml@gmail.com.
+For questions or inquiries, please contact chatbotwithml@gmail.com.

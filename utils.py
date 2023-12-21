@@ -145,6 +145,6 @@ def chatwithollama(message):
     res = requests.post(url, headers=headers, data=json_body)
     decoded_response = res.json()
     response_content = decoded_response["response"] 
-    print(decoded_response)
-    print(response_content) 
+    #print(decoded_response)
+    #print(response_content) 
     return response_content, 200
