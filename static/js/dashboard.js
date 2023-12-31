@@ -12,6 +12,43 @@ const micBtn = document.querySelector("#mic-btn");
 let userText = null;
 let initialHeight;
 
+function handleScan() {
+    const hiddenInput = document.getElementById('hidden-input');
+
+    // Trigger the click event on the hidden file input
+    hiddenInput.click();
+
+    // Listen for changes in the file input
+    hiddenInput.addEventListener('change', async () => {
+        if (!hiddenInput.files || hiddenInput.files.length === 0) {
+            console.error("No image selected");
+            return;
+        }
+
+        const file = hiddenInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = async () => {
+            const image = new Image();
+            image.onload = async () => {
+                try {
+                    const { data: { text } } = await Tesseract.recognize(image, 'eng');
+                    
+                    // Update the textarea with the OCR result
+                    const chatInput = document.getElementById('chat-input');
+                    chatInput.value = text;
+
+                } catch (error) {
+                    console.error("Error recognizing text:", error);
+                }
+            };
+            image.src = reader.result;
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
 function initializeApp() {
   initialHeight = chatInput.scrollHeight;
 
