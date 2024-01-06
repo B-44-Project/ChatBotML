@@ -1,6 +1,6 @@
 # MOdel: https://colab.research.google.com/drive/1dCwP2CtLm7GRv5mnnmuREYgrdhmr-O1s?usp=sharing
 
-
+import requests
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -18,7 +18,7 @@ smtp_port = 587
 username = "ChatBotWithML@gmail.com"
 password = "rbcuezxrezygoaek"
 
-import requests
+
 API_URL = "https://api.openai.com/v1/chat/completions"
 API_KEY = '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' 
 
@@ -145,6 +145,4 @@ def chatwithollama(message):
     res = requests.post(url, headers=headers, data=json_body)
     decoded_response = res.json()
     response_content = decoded_response["response"] 
-    #print(decoded_response)
-    #print(response_content) 
     return response_content, 200

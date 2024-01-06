@@ -2,25 +2,29 @@ import sys
 # uncomment below line in mac
 #sys.path.append('/Users/dheeraj/Documents/Project/venv/lib/python3.9/site-packages')
 
-from werkzeug.security import check_password_hash, generate_password_hash
+import os
+import random
+import time
+import re
+
 from flask import (
     Flask,
-    render_template, 
-    session, 
-    redirect, 
-    url_for, 
-    flash, 
+    render_template,
+    session,
+    redirect,
+    url_for,
+    flash,
     request,
     jsonify
 )
-
 from flask_session import Session
-import os, random, time
-from db import db
-from utils import sendmail, openaichat, getintent, chatwithollama
+from werkzeug.security import check_password_hash, generate_password_hash
 import requests
 import json
-import re
+
+from db import db
+from utils import sendmail, openaichat, getintent, chatwithollama
+
 
 otpstore = {}
 conversation_history = []
@@ -81,8 +85,10 @@ def chat():
             order_id = match.group(0) 
             print("order id detected", order_id)
             # get order details from db and append it to user msg within bracket
-            user_text += f"(Order id detected, order details: {order_id}, status: delayed by 2 days)"
-            full_prompt += f"(Order id detected, order details: {order_id}, status: delayed by 2 days)"
+            # can pass order details here from db
+            ordermsg = f"(Order id detected, order details: {order_id}, status: delayed by 2 days)"
+            user_text += ordermsg
+            full_prompt += ordermsg
         
         full_prompt += f"\nBot: " 
         
@@ -128,7 +134,7 @@ def login():
             session["fname"] = x.get('fname')
             session['email'] = data.get('email')
             return redirect(url_for('dashboard'))
-        flash("Wrong credentials!", "error") # msg and color for now
+        flash("Wrong credentials!", "error") 
         return redirect(url_for('login'))
 
 #reset password page
