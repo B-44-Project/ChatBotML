@@ -12,8 +12,6 @@ questions, changing how customer service is provided by taking a thorough and
 formally organized approach.
 
 ## Features
-- **Natural Language Processing (NLP):** The chatbot employs advanced NLP techniques to understand and interpret user queries, enabling more accurate and context-aware responses.
-
 - **Intent Recognition:** Using ML models, the chatbot identifies the intent behind customer queries, allowing it to respond appropriately and direct users to the relevant information or support resources.
 
 - **Multichannel Support:** The chatbot is designed to work across multiple communication channels, such as web chat, messaging apps, and more, ensuring a seamless and consistent customer support experience.
@@ -33,7 +31,7 @@ formally organized approach.
   - MongoBb
 
 - **Algorithms:**
-  - Natural Language Processing (NLP)
+  - Large Language Model (LLM)
   - Machine Learning (ML) algorithms
 
 ## Folder Structure
@@ -56,7 +54,6 @@ CHATBOTML/
 |   |   |-- notfound.js
 |   |   |-- otp.js
 |-- templates/
-|   |-- chathistory.html
 |   |-- dashboard.html
 |   |-- exit.html
 |   |-- help.html
@@ -70,7 +67,6 @@ CHATBOTML/
 |-- db.py
 |-- main.py
 |-- utils.py
-|-- verel.json
 ```
 
 ## Prerequisites
@@ -95,6 +91,7 @@ cd customer-support-chatbot
 pip install -r requirements.txt
 ```
 
+Note: Using virtualenv and installing requirements is more better way.
 ## Usage
 1. Run the chatbot application:
 ```

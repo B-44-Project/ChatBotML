@@ -1,6 +1,5 @@
 import pymongo
 
-# Replace with your MongoDB connection string
 #connection_string = "mongodb+srv://admin:admin123@cluster0.147cmvg.mongodb.net/?retryWrites=true&w=majority"
 connection_string = "mongodb://localhost:27017"
 
