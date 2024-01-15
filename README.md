@@ -1,4 +1,4 @@
-# Customer Support ChatBot with Machine Learning, Ollema
+# ThinkBot: Revolutionizing Chatbot through ML and LLM Innovation
 
 ## Overview
 This project creates a modern customer service chatbot with a unique "speak aloud"
