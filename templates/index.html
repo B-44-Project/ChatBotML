@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>HOME</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="{{ url_for('static', filename='images/Logo.jpeg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">THINK<span style="color: #C70039 ;">BOT</span></div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="#feature">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="/login">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-content-area">
+                <h1>Online ChatBot Service</h1>
+                <h3>Switch to contactless and customer convinent digital services.</h3>
+            </div>
+            <img class="hello" src="{{ url_for('static', filename='images/chat-bot-concept-illustration_114360-5522-modified.png') }}"
+                id="imgg" width="300" height="300">
+        </div>
+    </section>
+
+
+    <section class="offer" id="feature">
+        <h3 class="title" style="color: #C70039;">Our Moto</h3>
+        <p>Optimizing user experience through efficient communication, task automation, and accurate information
+            delivery
+            for seamless interactions.</p>
+        <hr>
+
+        <ul class="grid" id="pricing">
+            <li>
+                <i class="fa fa-money fa-4x"></i>
+                <h4 style="color: #C70039;">Cost Freindly</h4>
+                <p>Our services are cost-effective, emphasizing efficient development, low maintenance, scalability, and
+                    value
+                    without high operational or development expenses.</p>
+            </li>
+            <li>
+                <i class="fa fa-globe fa-4x"></i>
+                <h4 style="color: #C70039;">Planet Friendly</h4>
+                <p>Considers sustainable development practices, minimizing energy consumption, and employing
+                    eco-friendly
+                    technologies to reduce environmental impact</p>
+            </li>
+
+        </ul>
+    </section>
+
+    <section id="faq">
+        <h3 class="title">FAQs</h3>
+        <div class="fact">
+            <div class="question">
+                <h3>What is ChatBoT ? </h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-wifth="7" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <div class="answer">
+                <p>A chatbot is a computer program using artificial intelligence to simulate conversation. Deployed in
+                    messaging
+                    apps and websites, it assists users by answering queries, providing information, and automating
+                    tasks.
+                    Chatbots enhance customer service, streamline interactions, and find application in various
+                    industries for
+                    improved efficiency and accessibility.</p>
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="question">
+                <h3>Why should we promote </h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-wifth="7" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <div class="answer">
+                <p>Promoting chatbots for FAQs streamlines customer support, offering instant responses and freeing up
+                    human
+                    resources. They enhance user experience, providing efficient and accessible information. Chatbots
+                    optimize
+                    operations, reduce response times, and contribute to overall customer satisfaction, making them a
+                    valuable
+                    tool for effective and automated FAQ interactions.</p>
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="question">
+                <h3>How is it different </h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" stroke="white" stroke-wifth="7" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <div class="answer">
+                <p>Compared to general chatbots, FAQ-specific ones are specialized for efficiently addressing common
+                    queries.
+                    They prioritize streamlined responses, automation of repetitive tasks, and optimizing user
+                    interactions with
+                    specific information. This targeted approach enhances their effectiveness in handling frequently
+                    asked
+                    questions compared to broader-purpose chatbots.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="contact" id="contact">
+        <h3 class="title">Learn more</h3>
+        <p>Want to know more about our servies, feel free to contact us by giving your mail and our representatives will
+            contact you soon.</p>
+        <hr>
+        <form method="post">
+            <input type="email" name="email" placeholder="Enter your Email">
+            <button type="submit" class="btn">Subscribe now</button>
+        </form>
+    </section>
+
+    <footer>
+        <p><b><i class="fa fa-copyright fa-2x">Copyrights reserved by ChatBot</i></b>.</p>
+        <ul>
+            <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+        </ul>
+    </footer>
+
+    <script>
+        const facts = document.querySelectorAll(".fact");
+        facts.forEach(fact => {
+            fact.addEventListener("click", () => {
+                fact.classList.toggle("active");
+            });
+        })
+    </script>
+
+</body>
+
+</html>

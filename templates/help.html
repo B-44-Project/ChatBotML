@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ's</title>
+
+  <!--Page Icon Link-->
+  <link rel="icon" href="{{ url_for('static', filename='images/Logo.jpeg') }}" type="image/x-icon">
+
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+  <!--StyleSheet-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/help.css') }}">
+
+  <!--JavaScript-->
+  <script src="{{ url_for('static', filename='js/help.js') }}" defer></script>
+</head>
+
+<body>
+  <div class="accordion">
+    <div class="image-box">
+      <img src="{{ url_for('static', filename='images/mainImg.png') }}" alt="">
+    </div>
+    <div class="accordion-text">
+      <div class="title">FAQ</div>
+      <ul class="faq-text">
+        <li>
+          <div class="question-arrow">
+            <span class="question">How to register?</span>
+            <i class="bx bxs-chevron-down arrow"></i>
+          </div>
+          <p><b>To register, please follow these simple steps:</b><br><br>
+            1. Navigate to our website's <a href="/">homepage</a>.<br>
+            2. Look for the "Register" or "Get-Started" button. It's usually located in the top-right corner of the
+            page.<br>
+            3. Click on the "Register" or "Sign Up" button.<br>
+            4. Fill out the required information in the registration form. This typically includes your name, email
+            address, phone number and a secure password.<br>
+            5. Once you've filled out the form, click the "Submit" or "Register" button.<br>
+            6. Congratulations! You're now registered and can log in using your credentials.</p>
+          <span class="line"></span>
+        </li>
+        <li>
+          <div class="question-arrow">
+            <span class="question">How to contact customer support</span>
+            <i class="bx bxs-chevron-down arrow"></i>
+          </div>
+          <p><b>To contact customer support, you can typically follow these steps:</b><br><br>
+            1. Visit the Website:<br>
+            Go to the official website of the service or company you need support from.<br>
+            2. Look for Contact Information:<br>
+            Check the website for a "Contact Us," "Support," or "Help" section. This is where you'll often find
+            information on how to get in touch with customer support.<br>
+            3. Contact Form:<br><br>
+            The contact form is available on main <a class="link" href="/">website</a>, fill it out with your details
+            and a detailed description of your issue or inquiry. Make sure to provide any relevant account information.
+          </p>
+          <span class="line"></span>
+        </li>
+        <li>
+          <div class="question-arrow">
+            <span class="question">How to change my password</span>
+            <i class="bx bxs-chevron-down arrow"></i>
+          </div>
+          <p><b>To reset your password, follow these steps:</b><br><br>
+            1. Visit our <a href="/">website</a> and click on the "Sign In" or "Account" link.<br>
+            2. On the login page, find and click on the "Forgot Password" or "Reset Password" link.<br>
+            3. Enter the email address associated with your account.<br>
+            4. You'll receive an email with OTP. Enter and follow next steps.<br>
+            5. Follow the prompts to create a new password for your account.<br>
+            6. Once you've successfully reset your password, use the new password to log in.<br><br>
+            If you encounter any issues during this process, please contact our customer support team at customersupport@gmail.com for further assistance.</p>
+          <span class="line"></span>
+        </li>
+        <li>
+          <div class="question-arrow">
+            <span class="question">I havent recieved OTP for change of password</span>
+            <i class="bx bxs-chevron-down arrow"></i>
+          </div>
+          <p><b>If you haven't received the OTP for password reset, please follow these steps:</b><br><br>
+            1. <b>Check your Spam or Junk folder:</b> Sometimes, emails containing OTPs may be filtered as spam. Please check your Spam or Junk folder in your email account.<br>
+            2. <b>Wait for a few minutes:</b> OTPs usually arrive promptly, but there might be a slight delay. Wait for a few minutes and check your email again.<br>            
+            3. <b>Resend the OTP:</b> On the password reset page, there is often an option to resend the OTP. Click on the "Resend OTP" or a similar option.<br>           
+            4. <b>Verify your email address:</b> Ensure that the email address you entered for password reset is correct. If not, go back and double-check the email address you provided.<br>            
+            5. <b>heck your internet connection:</b> Ensure that your device is connected to the internet properly. A stable internet connection is essential for receiving emails.<br>
+            6. <b>Contact customer support:</b> If you've tried the above steps and still haven't received the OTP, please contact our customer support team at customersupport@gmail.com. They will assist you in resolving the issue and help you regain access to your account.<br><br>
+            <b>Remember, security is our top priority, and we appreciate your patience as we work to ensure the safety of your account.</b></p>
+          <span class="line"></span>
+        </li>
+        <li>
+          <div class="question-arrow">
+            <span class="question">Do you offer international shipping?</span>
+            <i class="bx bxs-chevron-down arrow"></i>
+          </div>
+          <p> Currently, our shipping services are exclusively available within India. Regrettably, we do not provide international shipping for our products. Our focus is on delivering a seamless and reliable service to our valued customers within the country. If you have any further inquiries or require assistance with a domestic order, please feel free to reach out to our dedicated customer support team at customersupport@gmail.com. We appreciate your understanding and look forward to serving you within our current operational scope. Thank you for considering our products.</p>
+          <span class="line"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/Logo.jpeg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Confirm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/exit.css') }}">
+</head>
+
+<body>
+    <section>
+        <div class="model-box">
+            <i class="fa-regular fa-circle-check"></i>
+            <h2>Completed</h2>
+            <h3>You have succesfully changed the paswword.<br>Click to Login!!</h3>
+
+            <div class="buttons">
+                <button onclick="window.location.href='/'" class="home-btn">Ok, Close</button>
+                <button onclick="window.location.href='/login'">Login</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

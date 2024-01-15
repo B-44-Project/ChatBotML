@@ -1,0 +1,11 @@
+flask
+flask-cors
+flask-session
+gevent
+socketio
+pymongo
+pandas
+scikit-learn
+joblib
+dill
+requests

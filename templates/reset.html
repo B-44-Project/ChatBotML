@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChatBot</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/Logo.jpeg') }}" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+</head>
+
+<body>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form method="post">
+    <h3>Reset Password</h3>
+
+    <label for="email">Email</label>
+    <input type="email" placeholder="elon@musk.com" id="email" name="email">
+
+    <button type="submit">Reset</button>
+    <p>Already have account?&nbsp;&nbsp;<span><a href="/login">LOGIN NOW</a></span></p>
+    <p>Don't have account?&nbsp;&nbsp;<span><a href="/register">REGISTER NOW</a></span></p>
+
+  </form>
+  </div>
+
+</html>

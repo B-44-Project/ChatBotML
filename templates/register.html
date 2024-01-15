@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register - ThinkBot</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/Logo.jpeg') }}" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+  <style>
+    .he {
+      height: 700px;
+      width: 400px;
+      background-color: rgba(255, 255, 255, 0.13);
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+      padding: 50px 35px;
+    }
+
+    .background1 {
+      width: 430px;
+      height: 720px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+    }
+
+    .background1 .shape1 {
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .shape1:first-child {
+      background: linear-gradient(#b7b7b7,
+          #fff
+          /*#1845ad,
+        #23a2f68*/
+        );
+      animation: move 20s linear infinite;
+      left: -80px;
+      top: -80px;
+    }
+
+    .shape1:last-child {
+      background: linear-gradient(to right,
+          #242424,
+          #393939
+          /*#ff512f,
+        #f09819*/
+        );
+      animation: move 15s linear infinite;
+      right: -80px;
+      bottom: -80px;
+    }
+
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background1">
+    <div class="shape1"></div>
+    <div class="shape1"></div>
+  </div>
+  <form class="he" method="post">
+    <h3>Register Here</h3>
+
+    <label for="fname">Full Name</label>
+    <input type="text" placeholder="Full Name" id="fname" name="fname" required>
+
+    <label for="email">Email</label>
+    <input type="email" placeholder="elon@musk.com" id="email" name="email" required>
+
+    <label for="number">Phone Number</label>
+    <input type="number" placeholder="8867155366" id="number" name="pnum">
+
+    <label for="password">Password</label>
+    <input type="password" placeholder="Password" id="password" name="pass" required>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+
+    <div class="{{ category }}" id="error-message">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    <button type="submit" name="register">Register</button>
+    <p>Already have account?&nbsp;&nbsp;<span><a href="/login">LOGIN NOW</a></span></p>
+
+    <!--<div class="social">
+      <div class="go"><i class="fab fa-google"></i> Google</div>
+      <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+    </div>-->
+
+
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  list-style: none;
+} 
+
+nav{
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background: #e1dede;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 1000;
+}
+nav .logo{
+    align-self:  flex-start;
+	font-family: "Quicksand", sans-serif;
+	font-size: 40px;
+	margin-top: 10px;
+	margin-right: auto;
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li a{
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover{
+  color: #fff;
+  background: #000;
+}
+nav .menu-btn i{
+  color: #000;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #9a9494;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a:hover{
+    background: none;
+    color: red;
+  }
+}
+
+@media (max-width: 600px){
+  .hero-content{
+    padding: 0px;
+  }
+
+  .hero h1{
+    font-weight: bold;
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .hero img.hello{
+    height: 200px;
+    width: 200px;
+  }
+}
+
+button.btn{
+    background-color: #fff;
+    border-radius: 15px; 
+}
+a.btn:hover, button.btn:hover {
+transform: translatey(-5px);
+box-shadow: 10px 10px 5px rgba(0,0,0,.1);
+}
+
+/*try*/
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 100px 80px;
+  background: black;
+}
+
+
+.grid {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+hr {
+	width: 250px;
+	height: 3px;
+	background-color: #C70039;;
+	border: 0;
+	margin-bottom: 50px;
+}
+
+section h3.title {
+	text-transform: capitalize;
+	font: bold 32px "Open Sans", sans-serif;
+	margin-bottom: 30px;
+	text-align: center;
+	color: #C70039;
+}
+
+section p {
+	max-width: 775px;
+	line-height: 2;
+	padding: 0 20px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 25px;
+}
+
+.hero{
+	display: grid;
+  align-items: center;
+  background: linear-gradient(to bottom, white, black);
+  padding: 100px 80px;
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+	font: bold 80px "Garamond", sans-serif;
+  margin-bottom: 15px;
+  margin-top: 30px;
+  max-width: 50%;
+  max-height: 15%;
+  float: left;
+  align-items: center;
+  color: black;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h3 {
+	font: normal 28px "Open Sans", sans-serif;
+	margin-bottom: 40px;
+	max-width: 40%;
+	max-height: 25%;
+	align-items: end;
+	color: white;
+}
+.hero img.menu{
+	margin-top: -2%;
+	margin-right: 1%;
+	float: right;
+	align-content: start;	
+	border-radius: 50px;
+	width: 25%;
+  height: 25%;
+}
+
+.hero-content-area {
+  flex: 1;
+  opacity: 0;
+  animation: 1s slidefade 1s forwards;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes slidefade {
+	100% {
+		opacity: 1;
+		margin: 0;
+	}
+}
+
+.offer .grid li {
+	padding: 50px;
+	flex-basis: 50%;
+	text-align: center;
+}
+
+.offer .grid li i {
+	color: #28B463 ;
+}
+
+.offer{
+	color: white;
+}
+
+.offer .grid li h4 {
+	font-size: 50px;
+	margin: 25px 0;
+}
+
+/*faq*/
+.fact{
+  max-width: 100%;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #C70039;;
+  cursor: pointer;
+}
+
+.question{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #C70039;
+}
+
+.question h3{
+  font-size: 1.8rem;
+}
+
+.answer{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.4s ease;
+  color: #fff;
+}
+
+.answer p{
+  padding-top: 1rem;
+  line-height: 1.6;
+  font-size: 1.4rem;
+}
+
+.fact.active .answer{
+  max-height: 300px;
+  animation: fade 1s ease-in-out;
+}
+
+.fact.active svg{
+  transform: rotate(180deg);
+}
+
+svg{
+  transition: transform 0.5s ease-in;
+}
+
+@keyframes fade{
+  from{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.contact form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 60%;
+}
+
+.contact p{
+	color: #fff;
+}
+
+.contact form .btn {
+	padding: 18px 42px;
+}
+
+.contact form input {
+	padding: 15px;
+	margin-right: 30px;
+	font-size: 18px;
+	color: #555;
+	flex: 1;
+  /*box-shadow: 5px 5px 5px grey;*/
+}
+
+.contact form a{
+	color: black;
+	background-color: white;
+	padding: 12px 32px;
+	border-radius: 10px;
+}
+
+.contact form a:hover{
+	transform: translatey(-5px);
+	box-shadow: 10px 10px 5px rgb(52, 51, 51);
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: white;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	color: black;
+	padding: 10px 0;
+}
+
+footer ul {
+	display: flex;
+}
+
+footer ul li {
+	margin-right: 16px;
+}
+
+footer ul li a{
+	color: black;
+}
+
+footer ul li a:hover{
+	color: #C70039;
+}
+
+footer p {
+	margin-left: 2%;
+	text-transform: uppercase;
+	font-size: 14px;
+	opacity: 0.6;
+    color: black;
+	align-self: center;
+}
+
+/*custom scroll bar*/
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: linear-gradient(black, white);
+}
+
+::-webkit-scrollbar-thumb{
+  background: black;
+  border-radius: 10px;
+}

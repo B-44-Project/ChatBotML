@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-image: linear-gradient(#000, #fff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.code-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.code{
+    caret-color: transparent;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    border: 1px solid #eee;
+    font-size: 30px;
+    width: 75px;
+    height: 80px;
+    margin: 10px;
+    text-align: center;
+    font-weight: 300;
+}
+
+@media (max-width: 600px) {
+    .code-container{
+        flex-wrap: wrap;
+    }
+    .code{
+        font-size: 24px;
+        height: 50px;
+        max-width: 50px;
+        font-size: bold;
+    }
+}
+
+.code::-webkit-outer-spin-button,
+.code::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.code:valid{
+    border-color: #9861c2;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.25);
+}
+
+.btn{
+    min-width: 400px;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin: 0px 0px 20px 0px;
+    padding: 0.775rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.7;
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+.btn-primary:hover{
+    transform: translatey(-5px);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+form.error{
+    color: red; 
+    margin-top: 10px;
+}
+
+
+form .success {
+    color: green;
+    margin-top: 10px;
+  }
